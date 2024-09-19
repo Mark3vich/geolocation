@@ -110,10 +110,10 @@ class DataTextReader {
                     dataText.hdop = Number(words[i][18]);
                 }
             }
-            console.log(dataText);
+            this.dataTextArray.push(dataText);
         }
         
-        return null;
+        return this.dataTextArray.length > 0 ? this.dataTextArray : null;
     }
 }
 
