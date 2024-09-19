@@ -106,7 +106,7 @@ class DataTextReader {
                 if(this.checkingForTheNumberOfDigits(words[i][17], 2)) {
                     dataText.glonass_sat_no = Number(words[i][17]);
                 }
-                if(this.checkingSlice(words[i][14], 1, 1)) {
+                if(this.checkingSlice(words[i][18], 1, 1)) {
                     dataText.hdop = Number(words[i][18]);
                 }
             }
