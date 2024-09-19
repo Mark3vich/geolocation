@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+import DataTextReader from '../../utils/DataTextReader';
+import { IMainState } from '../../interface/IMainState';
 
-interface MainState {
-  fileContent: string;
-  errorMessage: string;
-}
-
-class Main extends Component<{}, MainState> {
+class Main extends Component<{}, IMainState> {
   constructor(props: {}) {
     super(props);
     this.state = {
       fileContent: '',
       errorMessage: '',
+      dataText: null,
     };
   }
 
@@ -22,6 +20,12 @@ class Main extends Component<{}, MainState> {
       const reader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content = e.target?.result as string;
+        new DataTextReader(content).convertString();
+        // try {
+
+        // } catch (error) {
+        //     this.setState({ fileContent: '', errorMessage: 'Invalid format data' });
+        // }
         this.setState({ fileContent: content, errorMessage: '' });
       };
       reader.readAsText(file);
@@ -37,7 +41,7 @@ class Main extends Component<{}, MainState> {
       <div className="container mt-4">
         <div className="row">
           <div className="col-12">
-            <h1>MyApp</h1>
+            <h1>Выберите файл с геолокацией автобуса</h1>
           </div>
         </div>
         <div className="row">
@@ -55,6 +59,6 @@ class Main extends Component<{}, MainState> {
       </div>
     );
   }
-}
+};
 
 export default Main;

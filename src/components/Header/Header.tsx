@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'; // Импортируем Link
 
 class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            MyApp
-          </a>
+          <Link className="navbar-brand" to="/">
+            Geolocation
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,24 +23,24 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Services
-                </a>
+                <Link className="nav-link" to="/table">
+                  Table
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/contact">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
