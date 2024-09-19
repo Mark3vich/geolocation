@@ -12,7 +12,7 @@ function App() {
         <Routes>
           {/* Определяем маршруты для страниц */}
           <Route path="/" element={<Main />} />
-          <Route path="/table" element={<Table />} />
+          {/* <Route path="/table" element={<Table />} /> */}
           {/* Можно добавить больше маршрутов для других страниц */}
         </Routes>
       </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DataTextReader from '../../utils/DataTextReader';
 import { IMainState } from '../../interface/IMainState';
+import Table from '../Table/Table';
 
 class Main extends Component<{}, IMainState> {
   constructor(props: {}) {
@@ -47,7 +48,9 @@ class Main extends Component<{}, IMainState> {
             {fileContent && (
               <div className="mt-4">
                 <h3>File Content:</h3>
-                <pre>{fileContent}</pre>
+                {/* Вот здесь подключать table */}
+                <Table dataText={dataText || []} />
+                {/* <pre>{fileContent}</pre> */}
               </div>
             )}
           </div>
