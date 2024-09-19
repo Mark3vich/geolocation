@@ -20,23 +20,19 @@ class Main extends Component<{}, IMainState> {
       const reader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content = e.target?.result as string;
-        new DataTextReader(content).convertString();
-        // try {
-
-        // } catch (error) {
-        //     this.setState({ fileContent: '', errorMessage: 'Invalid format data' });
-        // }
-        this.setState({ fileContent: content, errorMessage: '' });
+        const dataText = new DataTextReader(content).convertString();
+    
+        this.setState({ fileContent: content, dataText, errorMessage: '' });
       };
       reader.readAsText(file);
     } else {
-      this.setState({ errorMessage: 'Please upload a valid .txt file', fileContent: '' });
+      this.setState({ errorMessage: 'Please upload a valid .txt file', fileContent: ''});
     }
   };
 
   render() {
-    const { fileContent, errorMessage } = this.state;
-
+    const { fileContent, errorMessage, dataText } = this.state;
+    console.log(dataText);
     return (
       <div className="container mt-4">
         <div className="row">
