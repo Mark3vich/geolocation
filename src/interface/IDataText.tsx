@@ -9,16 +9,16 @@ export interface IDataText {
     e_w: string;            // Значение запада или востока
     speed: number;          // Значение скорости
     course: number;         // Значение направления
-    altitude: number;       // Значение высоты
-    odometer: number;       // Значение пробега
-    io_status: number;      // Значение статуса IO (XXX)
-    event_id: number;       // Значение идентификатора события
-    ain1: number;           // Напряжение на аналоговом входе 1
-    ain2: number;           // Напряжение на аналоговом входе 2
-    fix_mode: number;       // 1: Местоположение не определено. 2: 2D Fix 3: 3D Fix
-    glonass_sat_no: number; // Число используемых спутников 
-    gps_sat_no: number;     // Число используемых спутников GPS
-    hdop: number;           // Величина горизонтального геометрического фактора 
-    // 20 объектов
+    altitude: number | null;       // Значение высоты
+    odometer: number | null;       // Значение пробега
+    io_status: number | null;      // Значение статуса IO (XXX)
+    event_id: number | null;       // Значение идентификатора события
+    ain1: number | null;           // Напряжение на аналоговом входе 1
+    ain2: number | null;           // Напряжение на аналоговом входе 2
+    fix_mode: number | null;       // 1: Местоположение не определено. 2: 2D Fix 3: 3D Fix
+    glonass_sat_no: number | null; // Число используемых спутников 
+    gps_sat_no: number | null;     // Число используемых спутников GPS
+    hdop: number | null;           // Величина горизонтального геометрического фактора 
+    // 19 объектов
 };
 
