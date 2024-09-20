@@ -10,10 +10,8 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          {/* Определяем маршруты для страниц */}
           <Route path="/" element={<Main />} />
           <Route path="/charts" element={<Charts />} />
-          {/* Можно добавить больше маршрутов для других страниц */}
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Chart, registerables } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 Chart.register(...registerables);
 
@@ -9,7 +9,7 @@ class Charts extends Component {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
-                label: 'Sales',
+                label: 'Speed',
                 backgroundColor: 'rgba(75, 192, 192, 1)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
@@ -20,7 +20,7 @@ class Charts extends Component {
     render() {
         return (
             <div className="container">
-                <Bar data={this.data} />
+                <Line data={this.data} />
             </div>    
         );
     }
