@@ -1,8 +1,8 @@
 export interface IDataText {
     report: string;         // Текст отчёта 
     device_id: number;      // Идентификационный код для центра управления
-    date: number;           // Значение даты
-    time: number;           // Значение времени
+    date: string;           // Значение даты
+    time: string;           // Значение времени
     latitude: string;       // Значение широты
     n_s: string;            // Значение севера или юга
     longitude: string;      // Значение долготы

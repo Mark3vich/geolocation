@@ -48,9 +48,7 @@ class Main extends Component<{}, IMainState> {
             {fileContent && (
               <div className="mt-4">
                 <h3>File Content:</h3>
-                {/* Вот здесь подключать table */}
                 <Table dataText={dataText || []} />
-                {/* <pre>{fileContent}</pre> */}
               </div>
             )}
           </div>
