@@ -33,7 +33,6 @@ class Main extends Component<{}, IMainState> {
 
   render() {
     const { fileContent, errorMessage, dataText } = this.state;
-    console.log(dataText);
     return (
       <div className="container mt-4">
         <div className="row">
