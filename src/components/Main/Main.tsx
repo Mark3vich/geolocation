@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import DataTextReader from '../../utils/DataTextReader';
 import { IMainState } from '../../interface/IMainState';
 import Table from '../Table/Table';
+import DataTextStores from '../../stores/DataTextStores';
+import { observer } from 'mobx-react';
 
+@observer
 class Main extends Component<{}, IMainState> {
   constructor(props: {}) {
     super(props);
@@ -22,8 +25,11 @@ class Main extends Component<{}, IMainState> {
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content = e.target?.result as string;
         const dataText = new DataTextReader(content).convertString();
-    
-        this.setState({ fileContent: content, dataText, errorMessage: '' });
+        
+        if(typeof(dataText) !== null) { 
+          DataTextStores.setDataText(dataText);
+        }
+        this.setState({ fileContent: content, errorMessage: '' });
       };
       reader.readAsText(file);
     } else {
@@ -32,7 +38,7 @@ class Main extends Component<{}, IMainState> {
   };
 
   render() {
-    const { fileContent, errorMessage, dataText } = this.state;
+    const { fileContent, errorMessage } = this.state;
     return (
       <div className="container mt-4">
         <div className="row">
@@ -47,7 +53,7 @@ class Main extends Component<{}, IMainState> {
             {fileContent && (
               <div className="mt-4">
                 <h3>File Content:</h3>
-                <Table dataText={dataText || []} />
+                <Table dataText={DataTextStores.getDataText() || []} />
               </div>
             )}
           </div>
