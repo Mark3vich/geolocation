@@ -26,7 +26,7 @@ class Main extends Component<{}, IMainState> {
         const content = e.target?.result as string;
         const dataText = new DataTextReader(content).convertString();
         
-        if(typeof(dataText) !== null) { 
+        if(dataText !== null) { 
           DataTextStores.setDataText(dataText);
         }
         this.setState({ fileContent: content, errorMessage: '' });
