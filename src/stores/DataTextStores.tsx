@@ -11,7 +11,7 @@ class DataTextStore {
         this.dataText = dataText;
     }
 
-    @action getDataText() {
+    @action getDataText(): IDataText[] | null {
         return this.dataText;
     }
 };

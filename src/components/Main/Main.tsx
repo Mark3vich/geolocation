@@ -12,7 +12,6 @@ class Main extends Component<{}, IMainState> {
     this.state = {
       fileContent: '',
       errorMessage: '',
-      dataText: null,
     };
   }
 
