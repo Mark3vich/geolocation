@@ -1,5 +1,6 @@
 import { makeAutoObservable, observable, action } from "mobx";
 import { IDataText } from "../interface/IDataText";
+import ConvertData from "../utils/ConvertData";
 
 class DataTextStore {
     @observable dataText: IDataText[] | null = [];
@@ -39,11 +40,11 @@ class DataTextStore {
     }
 
     @action getLatitudeDataText(): string[] | undefined {
-        return this.dataText?.map(item => item.latitude);
+        return this.dataText?.map(item => ConvertData.convertCoordinates(item.latitude));
     }
 
-    @action getLongitudeDataText(): number[] | undefined {
-        return this.dataText?.map(item => this.convertToCoordinateString(item.longitude));
+    @action getLongitudeDataText(): string[] | undefined {
+        return this.dataText?.map(item => item.longitude);
     }
 };
 

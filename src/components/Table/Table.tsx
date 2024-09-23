@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { IDataText } from '../../interface/IDataText';
+import ConvertData from '../../utils/ConvertData';
 
 class Table extends Component<{ dataText: IDataText[] }> {
     constructor(props: { dataText: IDataText[] }) {
@@ -40,9 +41,9 @@ class Table extends Component<{ dataText: IDataText[] }> {
                         <td>{item.device_id !== null ? item.device_id : 'N/d'}</td>
                         <td>{item.date !== null ? item.date : 'N/d'}</td>
                         <td>{item.time !== null ? item.time : 'N/d'}</td>
-                        <td>{item.latitude !== null ? item.latitude : 'N/d'}</td>
+                        <td>{item.latitude !== null ? ConvertData.convertCoordinates(String(item.latitude)) : 'N/d'}</td>
                         <td>{item.n_s !== null ? item.n_s : 'N/d'}</td>
-                        <td>{item.longitude !== null ? item.longitude : 'N/d'}</td>
+                        <td>{item.longitude !== null ? ConvertData.convertCoordinates(String(item.longitude)) : 'N/d'}</td>
                         <td>{item.e_w !== null ? item.e_w : 'N/d'}</td>
                         <td>{item.speed !== null ? item.speed : 'N/d'}</td>
                         <td>{item.course !== null ? item.course : 'N/d'}</td>

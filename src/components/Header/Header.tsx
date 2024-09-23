@@ -37,11 +37,6 @@ class Header extends Component {
                   Map
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/file">
-                  File
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

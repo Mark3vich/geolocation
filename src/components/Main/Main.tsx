@@ -10,7 +10,6 @@ class Main extends Component<{}, IMainState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      fileContent: '',
       errorMessage: '',
     };
   }
@@ -28,16 +27,16 @@ class Main extends Component<{}, IMainState> {
         if(dataText !== null) { 
           DataTextStores.setDataText(dataText);
         }
-        this.setState({ fileContent: content, errorMessage: '' });
+        this.setState({ errorMessage: '' });
       };
       reader.readAsText(file);
     } else {
-      this.setState({ errorMessage: 'Please upload a valid .txt file', fileContent: ''});
+      this.setState({ errorMessage: 'Please upload a valid .txt file'});
     }
   };
 
   render() {
-    const { fileContent, errorMessage } = this.state;
+    const { errorMessage } = this.state;
     return (
       <div className="container mt-4">
         <div className="row">
