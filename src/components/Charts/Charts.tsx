@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Chart, registerables } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import DataTextStores from "../../stores/DataTextStores";
 
 Chart.register(...registerables);
 

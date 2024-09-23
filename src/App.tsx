@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Charts from './components/Charts/Charts';
-import { Provider } from 'mobx-react';
-import DataTextStores from './stores/DataTextStores';
+// import { Provider } from 'mobx-react';
+// import DataTextStores from './stores/DataTextStores';
 
 function App() {
   return (
-    <Provider DataTextStores={DataTextStores}>
+    // <Provider DataTextStores={DataTextStores}>
       <Router>
         <div className="App">
           <Header />
@@ -18,7 +18,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </Provider>
+    // </Provider>
   );
 }
 
