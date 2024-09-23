@@ -14,6 +14,14 @@ class DataTextStore {
     @action getDataText(): IDataText[] | null {
         return this.dataText;
     }
+
+    @action getSpeedDataText(): string[] | undefined {
+        return this.dataText?.map(item => String(item.speed));
+    }
+
+    @action getTimeDataText(): string[] | undefined {
+        return this.dataText?.map(item => item.time);
+    }
 };
 
 export default new DataTextStore();
