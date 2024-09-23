@@ -12,18 +12,37 @@ class Charts extends Component {
         labels: DataTextStores.getTimeDataText(),
         datasets: [
             {
-                label: 'Speed',
+                label: 'Speed/Time',
                 backgroundColor: 'rgba(75, 192, 192, 1)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
                 data: DataTextStores.getSpeedDataText(),
+                tension: 0.3, 
+                cubicInterpolationMode: 'monotone' as const 
             },
         ],
     };
+    private coordinates = {
+        labels: DataTextStores.getLatitudeDataText(),
+        datasets: [
+            {
+                label: 'Latitude/Longitude',
+                backgroundColor: 'rgba(75, 192, 192, 1)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                data: DataTextStores.getLongitudeDataText(),
+                pointBackgroundColor: 'orange', 
+                pointBorderColor: 'orange', 
+                tension: 0.3, 
+                cubicInterpolationMode: 'monotone' as const 
+            },
+        ],
+    }
     render() {
         return (
             <div className="container">
                 <Line data={this.data} />
+                <Line data={this.coordinates} />
             </div>    
         );
     }
