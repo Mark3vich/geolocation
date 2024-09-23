@@ -17,8 +17,8 @@ class Charts extends Component {
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
                 data: DataTextStores.getSpeedDataText(),
-                tension: 0.3, 
-                cubicInterpolationMode: 'monotone' as const 
+                tension: 0.3,
+                cubicInterpolationMode: 'monotone' as const
             },
         ],
     };
@@ -27,23 +27,24 @@ class Charts extends Component {
         datasets: [
             {
                 label: 'Latitude/Longitude',
-                backgroundColor: 'rgba(75, 192, 192, 1)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(255, 165, 0, 1)',
+                borderColor: 'rgba(255, 165, 0, 1)',
                 borderWidth: 1,
                 data: DataTextStores.getLongitudeDataText(),
-                pointBackgroundColor: 'orange', 
-                pointBorderColor: 'orange', 
-                tension: 0.3, 
-                cubicInterpolationMode: 'monotone' as const 
+                pointBackgroundColor: 'orange',
+                pointBorderColor: 'orange',
+                tension: 0.3,
+                cubicInterpolationMode: 'monotone' as const
             },
         ],
     }
+
     render() {
         return (
             <div className="container">
                 <Line data={this.data} />
                 <Line data={this.coordinates} />
-            </div>    
+            </div>
         );
     }
 }
