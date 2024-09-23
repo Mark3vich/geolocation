@@ -49,12 +49,12 @@ class Main extends Component<{}, IMainState> {
           <div className="col-12">
             <input type="file" accept=".txt" onChange={this.handleFileChange} />
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-            {DataTextStores.getDataText() && (
+            {DataTextStores.getDataText()?.length ? (
               <div className="mt-4">
                 <h3>File Content:</h3>
-                <Table dataText={DataTextStores.getDataText() || []} />
+                <Table dataText={DataTextStores.getDataText() ?? []} />
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
