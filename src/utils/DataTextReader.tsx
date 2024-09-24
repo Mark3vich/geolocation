@@ -18,7 +18,7 @@ class DataTextReader {
             if(words[i][0] === "&REPORT") {
                 dataText = {
                     report: words[i][0],
-                    device_id: 0,
+                    device_id: '',
                     date: '',
                     time: '',
                     latitude: '',
@@ -43,7 +43,7 @@ class DataTextReader {
             }
             if (dataText) {
                 if (ConvertData.checkingForTheNumberOfDigits(words[i][1], 4)) {
-                    dataText.device_id = Number(words[i][1]);
+                    dataText.device_id = words[i][1];
                 }
                 if(ConvertData.checkingForTheNumberOfDigits(words[i][2], 6)) {
                     dataText.date = ConvertData.convertDate(words[i][2]);

@@ -32,6 +32,28 @@ class ConvertData {
         }
         return strCoordinates;
     }
+
+    static convertToCoordinatesString(coordinates: string[] | undefined): number[] | undefined {     
+        return coordinates?.map(coordinate => {
+            let strCoordinates: string;
+            if(coordinates[0] !== "0") {
+                strCoordinates = coordinate[0] + coordinate[1] + coordinate[2] + "." + coordinate[3] + coordinate[4] + coordinate[6] + coordinate[7] + coordinate[8] + coordinate[9];
+            } else {
+                strCoordinates = coordinate[1] + coordinate[2] + "." + coordinate[3] + coordinate[4] + coordinate[6] + coordinate[7] + coordinate[8] + coordinate[9];
+            }
+            return parseFloat(strCoordinates);
+        });
+    }
+
+    static convertToCoordinateString(coordinate: string): number {
+        let strCoordinates: string;
+        if(coordinate[0] !== "0") {
+            strCoordinates = coordinate[0] + coordinate[1] + coordinate[2] + "." + coordinate[3] + coordinate[4] + coordinate[6] + coordinate[7] + coordinate[8] + coordinate[9];
+        } else {
+            strCoordinates = coordinate[1] + coordinate[2] + "." + coordinate[3] + coordinate[4] + coordinate[6] + coordinate[7] + coordinate[8] + coordinate[9];
+        }
+        return parseFloat(strCoordinates);
+    }
 }
 
 export default ConvertData;

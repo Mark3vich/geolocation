@@ -12,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,  // Enable support for decorators
+    "experimentalDecorators": true,   // Enable support for decorators
     "emitDecoratorMetadata": true,    // Optionally enable if you need metadata for DI frameworks
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",

@@ -3,6 +3,7 @@ import { Chart, registerables } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import DataTextStores from "../../stores/DataTextStores";
 import { observer } from 'mobx-react';
+import ConvertData from "../../utils/ConvertData";
 
 Chart.register(...registerables);
 
@@ -23,14 +24,14 @@ class Charts extends Component {
         ],
     };
     private coordinates = {
-        labels: DataTextStores.getLatitudeDataText(),
+        labels: ConvertData.convertToCoordinatesString(DataTextStores.getLatitudeDataText()),
         datasets: [
             {
                 label: 'Latitude/Longitude',
                 backgroundColor: 'rgba(255, 165, 0, 1)',
                 borderColor: 'rgba(255, 165, 0, 1)',
                 borderWidth: 1,
-                data: DataTextStores.getLongitudeDataText(),
+                data: ConvertData.convertToCoordinatesString(DataTextStores.getLongitudeDataText()),
                 pointBackgroundColor: 'orange',
                 pointBorderColor: 'orange',
                 tension: 0.3,

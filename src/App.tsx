@@ -6,8 +6,8 @@ import Charts from './components/Charts/Charts';
 import Map from './components/Map/Map';
 
 const data = [
-  { device_id: 'Device1', latitude: 51.505, longitude: -0.09 },
-  { device_id: 'Device2', latitude: 51.515, longitude: -0.1 },
+  { device_id: 'Device1', latitude: 50.344100, longitude: 36.341844 },
+  { device_id: 'Device2', latitude: 51.515, longitude: 36.34 },
   // Добавьте больше данных, если нужно
 ];
 
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/charts" element={<Charts />} />
-          <Route path="/map" element={<Map coordinates={data}/>} />
+          <Route path="/map" element={<Map />} />
         </Routes>
       </div>
     </Router>
