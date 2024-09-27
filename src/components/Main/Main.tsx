@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import DataTextReader from '../../utils/DataTextReader';
 import { IMainState } from '../../interface/IMainState';
 import Table from '../Table/Table';
 import DataTextStores from '../../stores/DataTextStores';
 import { observer } from 'mobx-react';
+import { IDataText } from '../../interface/IDataText';
+import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -14,15 +15,14 @@ class Main extends Component<{}, IMainState> {
     };
   }
 
-  // Обработчик выбора файла
   handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]; // Получаем выбранный файл
+    const file = event.target.files?.[0]; 
 
     if (file && file.type === 'text/plain') {
-      const reader = new FileReader();
+      const reader: FileReader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
-        const content = e.target?.result as string;
-        const dataText = new DataTextReader(content).convertString();
+        const content: string = e.target?.result as string;
+        const dataText: IDataText[] | null = new UniversalGeometryReaderData(content).universalGeometryReader();
         
         if(dataText !== null) { 
           DataTextStores.setDataText(dataText);
