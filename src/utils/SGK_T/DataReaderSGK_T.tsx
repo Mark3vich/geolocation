@@ -1,5 +1,5 @@
 import { EAST, NORTH, SOUTH, WEST } from "../../consts/constsApp";
-import { IDataText } from "../../interface/IDataText";
+import { IDataText } from "../../interface/IDataTextSGK_T";
 import ConvertData from "./ConvertDataSGK_T";
 
 class DataReaderSGK_T {    

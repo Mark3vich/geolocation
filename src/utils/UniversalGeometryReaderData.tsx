@@ -1,5 +1,5 @@
 import { MESSAGE_ID, REPORT } from "../consts/constsApp";
-import { IDataText } from "../interface/IDataText";
+import { IDataText } from "../interface/IDataTextSGK_T";
 import DataReaderSGK_T from "./SGK_T/DataReaderSGK_T";
 
 class UniversalGeometryReaderData {

@@ -1,5 +1,5 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataText } from "../interface/IDataText";
+import { IDataText } from "../interface/IDataTextSGK_T";
 
 class DataTextStore {
     @observable dataText: IDataText[] | null = [];

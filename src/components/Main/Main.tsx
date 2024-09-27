@@ -3,7 +3,7 @@ import { IMainState } from '../../interface/IMainState';
 import Table from '../Table/Table';
 import DataTextStores from '../../stores/DataTextStores';
 import { observer } from 'mobx-react';
-import { IDataText } from '../../interface/IDataText';
+import { IDataText } from '../../interface/IDataTextSGK_T';
 import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
 
 @observer
