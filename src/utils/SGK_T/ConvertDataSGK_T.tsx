@@ -1,19 +1,6 @@
-class ConvertData {
-    public static isInteger(value: string): boolean {
-        return /^\d+$/.test(value);
-    }
+import AbstractConvertAll from "../AbstractConvertAll";
 
-    public static checkingForTheNumberOfDigits(dataString: string, numberOfDigits: number): boolean {
-        return this.isInteger(dataString) && dataString.length === numberOfDigits;
-    }
-
-    public static checkingSlice(latitudes: string, start: number, end: number): boolean {
-        const coordinates = latitudes.split('.').map(latitude => latitude.trim())
-        return this.checkingForTheNumberOfDigits(coordinates[0], start) && 
-               this.checkingForTheNumberOfDigits(coordinates[1], end);
-    }
-
-
+class ConvertData extends AbstractConvertAll {
     public static convertDate(date: string): string {
         return date[0] + date[1] + "." + date[2] + date[3] + ".20" + date[4] + date[5];
     }
