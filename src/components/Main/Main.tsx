@@ -3,8 +3,9 @@ import { IMainState } from '../../interface/IMainState';
 import Table from '../Table/Table';
 import DataTextStores from '../../stores/DataTextStores';
 import { observer } from 'mobx-react';
-import { IDataText } from '../../interface/IDataTextSGK_T';
+import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
 import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
+import { IDataTextNMEA } from '../../interface/IDataTextNMEA';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -22,10 +23,11 @@ class Main extends Component<{}, IMainState> {
       const reader: FileReader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content: string = e.target?.result as string;
-        const dataText: IDataText[] | null = new UniversalGeometryReaderData(content).universalGeometryReader();
+        const dataText: IDataTextSGK_T[] | IDataTextNMEA[] | null = new UniversalGeometryReaderData(content).universalGeometryReader();
         
         if(dataText !== null) { 
-          DataTextStores.setDataText(dataText);
+          const typedDataText = dataText as IDataTextSGK_T[];
+          DataTextStores.setDataText(typedDataText);
         }
         this.setState({ errorMessage: '' });
       };

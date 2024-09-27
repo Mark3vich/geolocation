@@ -1,10 +1,10 @@
 import { EAST, NORTH, SOUTH, WEST } from "../../consts/constsApp";
-import { IDataText } from "../../interface/IDataTextSGK_T";
+import { IDataTextSGK_T } from "../../interface/IDataTextSGK_T";
 import ConvertData from "./ConvertDataSGK_T";
 
 class DataReaderSGK_T {    
-    public static convertString(dataTextArray: IDataText[], words: string[]): void {
-        let dataText: IDataText = {
+    public static convertString(dataTextArray: IDataTextSGK_T[], words: string[]): void {
+        let dataText: IDataTextSGK_T = {
             report: words[0],
             device_id: '',
             date: '',
