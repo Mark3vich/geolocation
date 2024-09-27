@@ -1,27 +1,28 @@
 class ConvertData {
-    static isInteger(value: string): boolean {
+    public static isInteger(value: string): boolean {
         return /^\d+$/.test(value);
     }
 
-    static checkingForTheNumberOfDigits(dataString: string, numberOfDigits: number): boolean {
+    public static checkingForTheNumberOfDigits(dataString: string, numberOfDigits: number): boolean {
         return this.isInteger(dataString) && dataString.length === numberOfDigits;
     }
 
-    static checkingSlice(latitudes: string, start: number, end: number): boolean {
+    public static checkingSlice(latitudes: string, start: number, end: number): boolean {
         const coordinates = latitudes.split('.').map(latitude => latitude.trim())
         return this.checkingForTheNumberOfDigits(coordinates[0], start) && 
                this.checkingForTheNumberOfDigits(coordinates[1], end);
     }
 
-    static convertDate(date: string): string {
+
+    public static convertDate(date: string): string {
         return date[0] + date[1] + "." + date[2] + date[3] + ".20" + date[4] + date[5];
     }
 
-    static convertTime(time: string): string {
+    public static convertTime(time: string): string {
         return time[0] + time[1] + ":" + time[2] + time[3] + ":" + time[4] + time[5];
     }
 
-    static convertCoordinates(coordinates: string): string {
+    public static convertCoordinates(coordinates: string): string {
         let seconds: string = String(parseFloat("0." + coordinates[6] + coordinates[7] + coordinates[8] + coordinates[9]) * 60);
         seconds = parseFloat(seconds).toFixed(3).replace('.', ',');
         let strCoordinates: string;
@@ -33,7 +34,7 @@ class ConvertData {
         return strCoordinates;
     }
 
-    static convertToCoordinatesString(coordinates: string[] | undefined): number[] | undefined {     
+    public static convertToCoordinatesString(coordinates: string[] | undefined): number[] | undefined {     
         return coordinates?.map(coordinate => {
             let strCoordinates: string;
             if(coordinates[0] !== "0") {
@@ -45,7 +46,7 @@ class ConvertData {
         });
     }
 
-    static convertToCoordinateString(coordinate: string): number {
+    public static convertToCoordinateString(coordinate: string): number {
         let strCoordinates: string;
         if(coordinate[0] !== "0") {
             strCoordinates = coordinate[0] + coordinate[1] + coordinate[2] + "." + coordinate[3] + coordinate[4] + coordinate[6] + coordinate[7] + coordinate[8] + coordinate[9];

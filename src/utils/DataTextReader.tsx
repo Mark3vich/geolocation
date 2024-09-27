@@ -1,3 +1,4 @@
+import { EAST, NORTH, REPORT, SOUTH, WEST } from "../consts/constsApp";
 import { IDataText } from "../interface/IDataText";
 import ConvertData from "./ConvertData";
 
@@ -9,13 +10,13 @@ class DataTextReader {
         this.dataTextArray = [];
     };
    
-    convertString(): IDataText[] | null { 
+    public convertString(): IDataText[] | null { 
         const lines:string[] = this.fileContent.split('\n').map(line => line.trim());
         const words:string[][] = lines.map(line => line.split(',').map(word => word.trim()));
         let dataText: IDataText | null = null;
 
         for(let i = 0; i < words.length; i++) {
-            if(words[i][0] === "&REPORT") {
+            if(words[i][0] === REPORT) {
                 dataText = {
                     report: words[i][0],
                     device_id: '',
@@ -52,15 +53,15 @@ class DataTextReader {
                     dataText.time = ConvertData.convertTime(words[i][3]);
                 }
                 if(ConvertData.checkingSlice(words[i][4], 5, 4)) {
-                    dataText.latitude = words[i][4]; // Исправить
+                    dataText.latitude = words[i][4]; 
                 }
-                if(words[i][5] === 'N' || words[i][5] === 'S') {
+                if(words[i][5] === NORTH || words[i][5] === SOUTH) {
                     dataText.n_s = words[i][5];
                 }
                 if(ConvertData.checkingSlice(words[i][6], 5, 4)) {
-                    dataText.longitude = words[i][6]; // Исправить
+                    dataText.longitude = words[i][6]; 
                 }
-                if(words[i][7] === 'E' || words[i][7] === 'W') {
+                if(words[i][7] === EAST || words[i][7] === WEST) {
                     dataText.e_w = words[i][7];
                 }
                 if(ConvertData.isInteger(words[i][8])) {
