@@ -1,6 +1,6 @@
 import { MESSAGE_ID, REPORT } from "../consts/constsApp";
 import { IDataText } from "../interface/IDataText";
-import DataTextReader from "./DataTextReader";
+import DataReaderSGK_T from "./DataReaderSGK_T";
 
 class UniversalGeometryReaderData {
     private fileContent: string;
@@ -15,7 +15,7 @@ class UniversalGeometryReaderData {
 
         for(let i = 0; i < words.length; i++) {
             if(words[i][0] === REPORT) {
-                DataTextReader.convertString(dataTextArray, words[i]); 
+                DataReaderSGK_T.convertString(dataTextArray, words[i]); 
             } else if(words[i][0] === MESSAGE_ID) {
                 continue;
             }  

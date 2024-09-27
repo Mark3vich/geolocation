@@ -1,8 +1,8 @@
-import { EAST, NORTH, REPORT, SOUTH, WEST } from "../consts/constsApp";
+import { EAST, NORTH, SOUTH, WEST } from "../consts/constsApp";
 import { IDataText } from "../interface/IDataText";
 import ConvertData from "./ConvertData";
 
-class DataTextReader {    
+class DataReaderSGK_T {    
     public static convertString(dataTextArray: IDataText[], words: string[]): void {
         let dataText = {
             report: words[0],
@@ -86,4 +86,4 @@ class DataTextReader {
     }
 }
 
-export default DataTextReader;
+export default DataReaderSGK_T;
