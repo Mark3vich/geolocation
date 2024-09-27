@@ -1,5 +1,7 @@
 import { MESSAGE_ID, REPORT } from "../consts/constsApp";
+import { IDataTextNMEA } from "../interface/IDataTextNMEA";
 import { IDataText } from "../interface/IDataTextSGK_T";
+import DataReaderNMEA from "./NMEA/DataReaderNMEA";
 import DataReaderSGK_T from "./SGK_T/DataReaderSGK_T";
 
 class UniversalGeometryReaderData {
@@ -11,18 +13,19 @@ class UniversalGeometryReaderData {
     public universalGeometryReader(): null | IDataText[] {
         const lines:string[] = this.fileContent.split('\n').map(line => line.trim());
         const words:string[][] = lines.map(line => line.split(',').map(word => word.trim()));
-        let dataTextArray: IDataText[] = [];
+        let dataTextArraySGK_T: IDataText[] = [];
+        let dataTextArrayNMEA:  IDataTextNMEA[] = [];
 
         for(let i = 0; i < words.length; i++) {
             if(words[i][0] === REPORT) {
-                DataReaderSGK_T.convertString(dataTextArray, words[i]); 
+                DataReaderSGK_T.convertString(dataTextArraySGK_T, words[i]); 
             } else if(words[i][0] === MESSAGE_ID) {
-                continue;
+                DataReaderNMEA.convertString(dataTextArrayNMEA, words[i]);
             }  
         }
 
-        if(dataTextArray.length > 0) {
-            return dataTextArray;
+        if(dataTextArraySGK_T.length > 0) {
+            return dataTextArraySGK_T;
         }
         return null;
     }

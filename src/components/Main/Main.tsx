@@ -11,7 +11,7 @@ class Main extends Component<{}, IMainState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      errorMessage: '',
+      errorMessage: '', // Убрать локальное состояние ошибки передать в store
     };
   }
 
