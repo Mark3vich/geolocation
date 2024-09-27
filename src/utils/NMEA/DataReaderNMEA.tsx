@@ -5,7 +5,8 @@ import ConvertDataNMEA from "./ConvertDataNMEA";
 
 class DataReaderNMEA {
     public static convertString(dataTextArrayNMEA: IDataTextNMEA[], words: string[]): void  {
-        let dataText = {
+        let dataText: IDataTextNMEA = {
+            message_id: words[0],
             utc_time: '',
             latitude: '',
             n_s_indicator: '',
@@ -15,9 +16,9 @@ class DataReaderNMEA {
             satellites_used: 0,
             hdop: 0,
             msl_atlitude: 0,
-            units: 0,
+            units: '',
             age_of_diff_corr: null,
-            diff_ref_station_id: 0,
+            diff_ref_station_id: '',
             checksum: 0,
             cr_cfg: 0,
         };
@@ -41,16 +42,18 @@ class DataReaderNMEA {
         } else if (ConvertDataNMEA.isInteger(words[9])) {
             dataText.msl_atlitude = Number(words[9]);
         } else if (words[10].length > 0) {
-            dataText.units = Number(words[10]);
+            dataText.units = words[10];
         } else if (words[11].length === 0) {
             dataText.age_of_diff_corr = null;
         } else if (words[12].length > 0) {
-            dataText.diff_ref_station_id = Number(words[12]);
+            dataText.diff_ref_station_id = words[12];
         } else if (words[13].length > 0) {
             dataText.checksum = Number(words[13]);
         } else if (words[14].length > 0) {
             dataText.cr_cfg = Number(words[14]);
         }
+
+        dataTextArrayNMEA.push(dataText);
     }
 }
 

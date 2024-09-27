@@ -4,7 +4,7 @@ import ConvertData from "./ConvertDataSGK_T";
 
 class DataReaderSGK_T {    
     public static convertString(dataTextArray: IDataText[], words: string[]): void {
-        let dataText = {
+        let dataText: IDataText = {
             report: words[0],
             device_id: '',
             date: '',
