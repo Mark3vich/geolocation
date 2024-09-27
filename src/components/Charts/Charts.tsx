@@ -3,7 +3,7 @@ import { Chart, registerables } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import DataTextStores from "../../stores/DataTextStores";
 import { observer } from 'mobx-react';
-import ConvertData from "../../utils/ConvertData";
+import ConvertData from "../../utils/SGK_T/ConvertDataSGK_T";
 
 Chart.register(...registerables);
 

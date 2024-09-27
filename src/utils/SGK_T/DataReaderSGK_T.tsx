@@ -1,6 +1,6 @@
-import { EAST, NORTH, SOUTH, WEST } from "../consts/constsApp";
-import { IDataText } from "../interface/IDataText";
-import ConvertData from "./ConvertData";
+import { EAST, NORTH, SOUTH, WEST } from "../../consts/constsApp";
+import { IDataText } from "../../interface/IDataText";
+import ConvertData from "./ConvertDataSGK_T";
 
 class DataReaderSGK_T {    
     public static convertString(dataTextArray: IDataText[], words: string[]): void {

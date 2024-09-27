@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IDataText } from '../../interface/IDataText';
-import ConvertData from '../../utils/ConvertData';
+import ConvertData from '../../utils/SGK_T/ConvertDataSGK_T';
 
 class Table extends Component<{ dataText: IDataText[] }> {
     constructor(props: { dataText: IDataText[] }) {

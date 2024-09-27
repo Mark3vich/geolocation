@@ -5,7 +5,7 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import DataTextStore from '../../stores/DataTextStores';
-import ConvertData from '../../utils/ConvertData';
+import ConvertData from '../../utils/SGK_T/ConvertDataSGK_T';
 
 // Fix for marker icons not showing up correctly
 L.Icon.Default.mergeOptions({

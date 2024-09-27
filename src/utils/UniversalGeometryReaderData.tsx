@@ -1,6 +1,6 @@
 import { MESSAGE_ID, REPORT } from "../consts/constsApp";
 import { IDataText } from "../interface/IDataText";
-import DataReaderSGK_T from "./DataReaderSGK_T";
+import DataReaderSGK_T from "./SGK_T/DataReaderSGK_T";
 
 class UniversalGeometryReaderData {
     private fileContent: string;
