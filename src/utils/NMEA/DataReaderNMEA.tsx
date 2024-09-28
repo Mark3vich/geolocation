@@ -1,28 +1,13 @@
-import { EAST, NORTH, SOUTH, WEST } from "../../consts/constsApp";
+import { EAST, NORTH, SOUTH, WEST } from "../../consts/ConstsApp";
 import { IDataTextNMEA } from "../../interface/IDataTextNMEA";
+import { dataTextObjectNMEA } from "../../object/DataTextObjectNMEA";
 import ConvertDataNMEA from "./ConvertDataNMEA";
-
 
 class DataReaderNMEA {
     public static convertString(dataTextArrayNMEA: IDataTextNMEA[], words: string[]): void  {
-        let dataText: IDataTextNMEA = {
-            message_id: words[0],
-            utc_time: '',
-            latitude: '',
-            n_s_indicator: '',
-            longitude: '',
-            e_w_indicator: '',
-            position_fix_indicator: 0,
-            satellites_used: 0,
-            hdop: 0,
-            msl_atlitude: 0,
-            units: '',
-            age_of_diff_corr: null,
-            diff_ref_station_id: '',
-            checksum: 0,
-            cr_cfg: 0,
-        };
-
+        dataTextObjectNMEA.message_id = words[0];
+        let dataText: IDataTextNMEA = {...dataTextObjectNMEA};
+        
         if (ConvertDataNMEA.chackingTimeUTC(words[1])) {
             dataText.utc_time = words[1];
         } else if (ConvertDataNMEA.checkingSlice(words[2], 4, 5)) {

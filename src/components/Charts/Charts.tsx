@@ -1,37 +1,37 @@
 import { Component } from "react";
 import { Chart, registerables } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import DataTextStores from "../../stores/DataTextStores";
+import DataTextStoresSGK_T from "../../stores/DataTextStoresSGK_T";
 import { observer } from 'mobx-react';
-import ConvertData from "../../utils/SGK_T/ConvertDataSGK_T";
+import ConvertDataSGK_T from "../../utils/SGK_T/ConvertDataSGK_T";
 
 Chart.register(...registerables);
 
 @observer
 class Charts extends Component {
     private data = {
-        labels: DataTextStores.getTimeDataText(),
+        labels: DataTextStoresSGK_T.getTimeDataText(),
         datasets: [
             {
                 label: 'Speed/Time',
                 backgroundColor: 'rgba(75, 192, 192, 1)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: DataTextStores.getSpeedDataText(),
+                data: DataTextStoresSGK_T.getSpeedDataText(),
                 tension: 0.3,
                 cubicInterpolationMode: 'monotone' as const
             },
         ],
     };
     private coordinates = {
-        labels: ConvertData.convertToCoordinatesString(DataTextStores.getLatitudeDataText()),
+        labels: ConvertDataSGK_T.convertToCoordinatesString(DataTextStoresSGK_T.getLatitudeDataText()),
         datasets: [
             {
                 label: 'Latitude/Longitude',
                 backgroundColor: 'rgba(255, 165, 0, 1)',
                 borderColor: 'rgba(255, 165, 0, 1)',
                 borderWidth: 1,
-                data: ConvertData.convertToCoordinatesString(DataTextStores.getLongitudeDataText()),
+                data: ConvertDataSGK_T.convertToCoordinatesString(DataTextStoresSGK_T.getLongitudeDataText()),
                 pointBackgroundColor: 'orange',
                 pointBorderColor: 'orange',
                 tension: 0.3,
@@ -41,6 +41,7 @@ class Charts extends Component {
     }
 
     render() {
+        console.log(DataTextStoresSGK_T.getTimeDataText());
         return (
             <div className="container">
                 <Line data={this.data} />

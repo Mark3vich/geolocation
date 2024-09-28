@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
-import ConvertData from '../../utils/SGK_T/ConvertDataSGK_T';
+import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
 
 class Table extends Component<{ dataText: IDataTextSGK_T[] }> {
     constructor(props: { dataText: IDataTextSGK_T[] }) {
@@ -8,6 +8,7 @@ class Table extends Component<{ dataText: IDataTextSGK_T[] }> {
     };
     render() {
         const { dataText } = this.props;
+        console.log(dataText);
         return (
             <table className="container table table-striped">
                 <thead>
@@ -41,9 +42,9 @@ class Table extends Component<{ dataText: IDataTextSGK_T[] }> {
                         <td>{item.device_id !== null ? item.device_id : 'N/d'}</td>
                         <td>{item.date !== null ? item.date : 'N/d'}</td>
                         <td>{item.time !== null ? item.time : 'N/d'}</td>
-                        <td>{item.latitude !== null ? ConvertData.convertCoordinates(String(item.latitude)) : 'N/d'}</td>
+                        <td>{item.latitude !== null ? ConvertDataSGK_T.convertCoordinates(String(item.latitude)) : 'N/d'}</td>
                         <td>{item.n_s !== null ? item.n_s : 'N/d'}</td>
-                        <td>{item.longitude !== null ? ConvertData.convertCoordinates(String(item.longitude)) : 'N/d'}</td>
+                        <td>{item.longitude !== null ? ConvertDataSGK_T.convertCoordinates(String(item.longitude)) : 'N/d'}</td>
                         <td>{item.e_w !== null ? item.e_w : 'N/d'}</td>
                         <td>{item.speed !== null ? item.speed : 'N/d'}</td>
                         <td>{item.course !== null ? item.course : 'N/d'}</td>

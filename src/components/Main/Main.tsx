@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { IMainState } from '../../interface/IMainState';
 import Table from '../Table/Table';
-import DataTextStores from '../../stores/DataTextStores';
+import DataTextStoresSGK_T from '../../stores/DataTextStoresSGK_T';
 import { observer } from 'mobx-react';
 import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
 import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
 import { IDataTextNMEA } from '../../interface/IDataTextNMEA';
+import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
+import ConvertDataNMEA from '../../utils/NMEA/ConvertDataNMEA';
+import DataTextStoresNMEA from '../../stores/DataTextStoresNMEA';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -17,7 +20,7 @@ class Main extends Component<{}, IMainState> {
   }
 
   handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]; 
+    const file: File | undefined = event.target.files?.[0]; 
 
     if (file && file.type === 'text/plain') {
       const reader: FileReader = new FileReader();
@@ -25,9 +28,14 @@ class Main extends Component<{}, IMainState> {
         const content: string = e.target?.result as string;
         const dataText: IDataTextSGK_T[] | IDataTextNMEA[] | null = new UniversalGeometryReaderData(content).universalGeometryReader();
         
-        if(dataText !== null) { 
-          const typedDataText = dataText as IDataTextSGK_T[];
-          DataTextStores.setDataText(typedDataText);
+        if(dataText !== null) {
+          if (ConvertDataSGK_T.isSGKFormat(dataText)) {
+            const typedDataText: IDataTextSGK_T[] = dataText as IDataTextSGK_T[];
+            DataTextStoresSGK_T.setDataText(typedDataText);
+          } else if(ConvertDataNMEA.isNMEAFormat(dataText)) {
+            const typedDataText: IDataTextNMEA[] = dataText as IDataTextNMEA[];
+            DataTextStoresNMEA.setDataText(typedDataText);
+          }
         }
         this.setState({ errorMessage: '' });
       };
@@ -50,10 +58,10 @@ class Main extends Component<{}, IMainState> {
           <div className="col-12">
             <input type="file" accept=".txt" onChange={this.handleFileChange} />
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-            {DataTextStores.getDataText()?.length ? (
+            {DataTextStoresSGK_T.getDataText()?.length ? (
               <div className="mt-4">
                 <h3>File Content:</h3>
-                <Table dataText={DataTextStores.getDataText() ?? []} />
+                <Table dataText={DataTextStoresSGK_T.getDataText() ?? []} />
               </div>
             ) : null}
           </div>

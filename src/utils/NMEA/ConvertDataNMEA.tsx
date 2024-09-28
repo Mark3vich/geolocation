@@ -1,3 +1,4 @@
+import { IDataTextNMEA } from "../../interface/IDataTextNMEA";
 import AbstractConvertAll from "../AbstractConvertAll";
 
 class ConvertDataNMEA extends AbstractConvertAll {
@@ -8,6 +9,10 @@ class ConvertDataNMEA extends AbstractConvertAll {
     public static checkingPositionFixIndicator(positionFixIndicator: string, from: number, to: number): boolean {
         let positionFixIndicatorNumber = Number(positionFixIndicator);
         return positionFixIndicatorNumber >= from && positionFixIndicatorNumber <= to;
+    }
+
+    public static isNMEAFormat(data: any): data is IDataTextNMEA[] {
+        return Array.isArray(data) && data.length > 0 && 'message_id' in data[0]; 
     }
 }
 

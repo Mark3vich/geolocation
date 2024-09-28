@@ -1,4 +1,4 @@
-import { MESSAGE_ID, REPORT } from "../consts/constsApp";
+import { MESSAGE_ID, REPORT } from "../consts/ConstsApp";
 import { IDataTextNMEA } from "../interface/IDataTextNMEA";
 import { IDataTextSGK_T } from "../interface/IDataTextSGK_T";
 import DataReaderNMEA from "./NMEA/DataReaderNMEA";
