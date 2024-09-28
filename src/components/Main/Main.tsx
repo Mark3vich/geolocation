@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IMainState } from '../../interface/IMainState';
-import Table from '../Table/Table';
+import TableSGK_T from '../Table/TableSGK_T';
 import DataTextStoresSGK_T from '../../stores/DataTextStoresSGK_T';
 import { observer } from 'mobx-react';
 import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
@@ -9,6 +9,7 @@ import { IDataTextNMEA } from '../../interface/IDataTextNMEA';
 import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
 import ConvertDataNMEA from '../../utils/NMEA/ConvertDataNMEA';
 import DataTextStoresNMEA from '../../stores/DataTextStoresNMEA';
+import TableNMEA from '../Table/TableNMEA';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -60,8 +61,14 @@ class Main extends Component<{}, IMainState> {
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             {DataTextStoresSGK_T.getDataText()?.length ? (
               <div className="mt-4">
-                <h3>File Content:</h3>
-                <Table dataText={DataTextStoresSGK_T.getDataText() ?? []} />
+                <h3>File Content SGK_T:</h3>
+                <TableSGK_T dataText={DataTextStoresSGK_T.getDataText() ?? []} />
+              </div>
+            ) : null}
+            {DataTextStoresNMEA.getDataText()?.length ? (
+              <div className="mt-4">
+                <h3>File Content NMEA:</h3>
+                <TableNMEA dataText={DataTextStoresNMEA.getDataText() ?? []} />
               </div>
             ) : null}
           </div>

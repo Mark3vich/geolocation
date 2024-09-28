@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
 import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
 
-class Table extends Component<{ dataText: IDataTextSGK_T[] }> {
+class TableSGK_T extends Component<{ dataText: IDataTextSGK_T[] }> {
     constructor(props: { dataText: IDataTextSGK_T[] }) {
         super(props);
     };
     render() {
         const { dataText } = this.props;
-        console.log(dataText);
         return (
             <table className="container table table-striped">
                 <thead>
@@ -66,4 +65,4 @@ class Table extends Component<{ dataText: IDataTextSGK_T[] }> {
     }
 }
 
-export default Table;
+export default TableSGK_T;
