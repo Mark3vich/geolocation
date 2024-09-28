@@ -13,6 +13,7 @@ class UniversalGeometryReaderData {
     public universalGeometryReader(): null | IDataTextSGK_T[] | IDataTextNMEA[] {
         const lines:string[] = this.fileContent.split('\n').map(line => line.trim());
         const words:string[][] = lines.map(line => line.split(',').map(word => word.trim()));
+
         let dataTextArraySGK_T: IDataTextSGK_T[] = [];
         let dataTextArrayNMEA:  IDataTextNMEA[] = [];
 

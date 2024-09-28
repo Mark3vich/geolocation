@@ -9,6 +9,7 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
 
     render() {
         const { dataText } = this.props;
+
         return (
             <table className="container table table-striped">
                 <thead>
@@ -20,7 +21,7 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
                         <th scope="col">N/S</th>
                         <th scope="col">LONGITUDE</th>
                         <th scope="col">E/W</th>
-                        <th scope="col">POSITION_FIX_INDICATOR</th>
+                        {/* <th scope="col">POSITION_FIX_INDICATOR</th> */}
                         <th scope="col">SATELLITES_USED</th>
                         <th scope="col">HDOP</th>
                         <th scope="col">MSL_ATLITUDE</th>
@@ -40,7 +41,7 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
                             <td>{dataText.n_s_indicator}</td>
                             <td>{dataText.longitude}</td>
                             <td>{dataText.e_w_indicator}</td>
-                            <td>{dataText.position_fix_indicator}</td>
+                            {/* <td>{dataText.position_fix_indicator}</td> */}
                             <td>{dataText.satellites_used}</td>
                             <td>{dataText.hdop}</td>
                             <td>{dataText.msl_atlitude}</td>

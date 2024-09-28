@@ -9,7 +9,7 @@ class AbstractConvertAll {
 
     // Перепроверить данную функцию
     public static checkingSlice(latitudes: string, start: number, end: number): boolean {
-        const coordinates = latitudes.split('.').map(latitude => latitude.trim())
+        const coordinates = latitudes.split('.').map(latitude => latitude.trim());
         return this.checkingForTheNumberOfDigits(coordinates[0], start) && 
                this.checkingForTheNumberOfDigits(coordinates[1], end);
     }

@@ -3,7 +3,7 @@ import AbstractConvertAll from "../AbstractConvertAll";
 
 class ConvertDataNMEA extends AbstractConvertAll {
     public static chackingTimeUTC(time: string): boolean {
-        return time.length === 10 && time[7] === '.';
+        return time.length === 9 && time[6] === '.';
     }
 
     public static checkingPositionFixIndicator(positionFixIndicator: string, from: number, to: number): boolean {

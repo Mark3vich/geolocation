@@ -28,7 +28,6 @@ class Main extends Component<{}, IMainState> {
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content: string = e.target?.result as string;
         const dataText: IDataTextSGK_T[] | IDataTextNMEA[] | null = new UniversalGeometryReaderData(content).universalGeometryReader();
-        
         if(dataText !== null) {
           if (ConvertDataSGK_T.isSGKFormat(dataText)) {
             const typedDataText: IDataTextSGK_T[] = dataText as IDataTextSGK_T[];
@@ -48,6 +47,7 @@ class Main extends Component<{}, IMainState> {
 
   render() {
     const { errorMessage } = this.state;
+    
     return (
       <div className="container mt-4">
         <div className="row">
