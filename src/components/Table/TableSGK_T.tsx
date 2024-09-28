@@ -22,16 +22,6 @@ class TableSGK_T extends Component<{ dataText: IDataTextSGK_T[] }> {
                         <th scope="col">E/W</th>
                         <th scope="col">SPEED</th>
                         <th scope="col">COURSE</th>
-                        {/* <th scope="col">ALTITUDE</th>
-                        <th scope="col">COUNTER</th>
-                        <th scope="col">IO_STATUS</th>
-                        <th scope="col">EVENT_ID</th>
-                        <th scope="col">AIN1</th>
-                        <th scope="col">AIN2</th>
-                        <th scope="col">FIX_MODE</th>
-                        <th scope="col">GLONASS</th>
-                        <th scope="col">GPS</th>
-                        <th scope="col">HDOP</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -47,16 +37,6 @@ class TableSGK_T extends Component<{ dataText: IDataTextSGK_T[] }> {
                         <td>{item.e_w !== null ? item.e_w : 'N/d'}</td>
                         <td>{item.speed !== null ? item.speed : 'N/d'}</td>
                         <td>{item.course !== null ? item.course : 'N/d'}</td>
-                        {/* <td>{item.altitude !== null ? item.altitude : 'N/d'}</td>
-                        <td>{item.odometer !== null ? item.odometer : 'N/d'}</td>
-                        <td>{item.io_status !== null ? item.io_status : 'N/d'}</td>
-                        <td>{item.event_id !== null ? item.event_id : 'N/d'}</td>
-                        <td>{item.ain1 !== null ? item.ain1 : 'N/d'}</td>
-                        <td>{item.ain2 !== null ? item.ain2 : 'N/d'}</td>
-                        <td>{item.fix_mode !== null ? item.fix_mode : 'N/d'}</td>
-                        <td>{item.glonass_sat_no !== null ? item.glonass_sat_no : 'N/d'}</td>
-                        <td>{item.gps_sat_no !== null ? item.gps_sat_no : 'N/d'}</td>
-                        <td>{item.hdop !== null ? item.hdop : 'N/d'}</td> */}
                     </tr>
                     ))}
                 </tbody>

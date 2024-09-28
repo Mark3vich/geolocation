@@ -21,13 +21,10 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
                         <th scope="col">N/S</th>
                         <th scope="col">LONGITUDE</th>
                         <th scope="col">E/W</th>
-                        {/* <th scope="col">POSITION_FIX_INDICATOR</th> */}
-                        <th scope="col">SATELLITES_USED</th>
+                        <th scope="col">USED</th>
                         <th scope="col">HDOP</th>
-                        <th scope="col">MSL_ATLITUDE</th>
+                        <th scope="col">ATLITUDE</th>
                         <th scope="col">UNITS</th>
-                        <th scope="col">AGE_OF_DIFF_CORR</th>
-                        <th scope="col">DIFF_REF_STATION_ID</th>
                         <th scope="col">CHECKSUM</th>
                     </tr>
                 </thead>
@@ -41,13 +38,10 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
                             <td>{dataText.n_s_indicator}</td>
                             <td>{dataText.longitude}</td>
                             <td>{dataText.e_w_indicator}</td>
-                            {/* <td>{dataText.position_fix_indicator}</td> */}
                             <td>{dataText.satellites_used}</td>
                             <td>{dataText.hdop}</td>
                             <td>{dataText.msl_atlitude}</td>
                             <td>{dataText.units}</td>
-                            <td>{dataText.age_of_diff_corr}</td>
-                            <td>{dataText.diff_ref_station_id}</td>
                             <td>{dataText.checksum}</td>
                         </tr>
                     ))}

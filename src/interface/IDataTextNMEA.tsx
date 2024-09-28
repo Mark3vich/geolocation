@@ -12,6 +12,6 @@ export interface IDataTextNMEA {
     units: string;
     age_of_diff_corr: null;
     diff_ref_station_id: string;
-    checksum: number;
+    checksum: string;
     cr_cfg: number;
 }

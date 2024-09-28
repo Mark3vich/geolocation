@@ -14,7 +14,7 @@ export let dataTextObjectNMEA: IDataTextNMEA = {
     units: '',
     age_of_diff_corr: null,
     diff_ref_station_id: '',
-    checksum: 0,
+    checksum: '',
     cr_cfg: 0,
 };
 

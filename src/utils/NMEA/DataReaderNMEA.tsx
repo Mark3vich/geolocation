@@ -29,12 +29,8 @@ class DataReaderNMEA {
         if (ConvertDataNMEA.checkingPositionFixIndicator(words[7], 0, 12)) {
             dataText.satellites_used = Number(words[7]);
         } 
-        if (ConvertDataNMEA.isInteger(words[8])) {
-            dataText.hdop = Number(words[8]);
-        } 
-        if (ConvertDataNMEA.isInteger(words[9])) {
-            dataText.msl_atlitude = Number(words[9]);
-        } 
+        dataText.hdop = Number(words[8]); 
+        dataText.msl_atlitude = Number(words[9]);
         if (words[10].length > 0) {
             dataText.units = words[10];
         } 
@@ -44,13 +40,9 @@ class DataReaderNMEA {
         if (words[12].length > 0) {
             dataText.diff_ref_station_id = words[12];
         }
-        if (words[13].length > 0) {
-            dataText.checksum = Number(words[13]);
-        } 
         if (words[14].length > 0) {
-            dataText.cr_cfg = Number(words[14]);
-        }
-
+            dataText.checksum = words[14];
+        } 
         dataTextArrayNMEA.push(dataText);
     }
 }
