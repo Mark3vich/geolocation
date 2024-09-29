@@ -16,6 +16,22 @@ class DataTextStoresNMEA {
     @action getDataText(): IDataTextNMEA[] | null {
         return this.dataText;
     }
+
+    @action getTimeDataText(): string[] | undefined {
+        return this.dataText?.map((item) => item.utc_time);
+    }
+
+    @action getLatitudeDataText(): string[] | undefined {
+        return this.dataText?.map((item) => item.latitude);
+    }
+
+    @action getLongitudeDataText(): string[] | undefined {
+        return this.dataText?.map((item) => item.longitude);
+    }
+
+    @action getHdopDataText(): string[] | undefined {
+        return this.dataText?.map((item) => String(item.hdop));
+    }
 }
 
 export default new DataTextStoresNMEA();

@@ -1,51 +1,33 @@
 import { Component } from "react";
 import { Chart, registerables } from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import DataTextStoresSGK_T from "../../stores/DataTextStoresSGK_T";
 import { observer } from 'mobx-react';
-import ConvertDataSGK_T from "../../utils/SGK_T/ConvertDataSGK_T";
+import ChartsSGK_T from "./ChartsSGK_T/ChartsSGK_T";
+import ChartsNMEA from "./ChartsNMEA/ChartsNMEA";
+import DataTextStoresSGK_T from "../../stores/DataTextStoresSGK_T";
+import DataTextStoresNMEA from "../../stores/DataTextStoresNMEA";
 
 Chart.register(...registerables);
 
 @observer
 class Charts extends Component {
-    private data = {
-        labels: DataTextStoresSGK_T.getTimeDataText(),
-        datasets: [
-            {
-                label: 'Speed/Time',
-                backgroundColor: 'rgba(75, 192, 192, 1)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-                data: DataTextStoresSGK_T.getSpeedDataText(),
-                tension: 0.3,
-                cubicInterpolationMode: 'monotone' as const
-            },
-        ],
-    };
-    private coordinates = {
-        labels: ConvertDataSGK_T.convertToCoordinatesString(DataTextStoresSGK_T.getLatitudeDataText()),
-        datasets: [
-            {
-                label: 'Latitude/Longitude',
-                backgroundColor: 'rgba(255, 165, 0, 1)',
-                borderColor: 'rgba(255, 165, 0, 1)',
-                borderWidth: 1,
-                data: ConvertDataSGK_T.convertToCoordinatesString(DataTextStoresSGK_T.getLongitudeDataText()),
-                pointBackgroundColor: 'orange',
-                pointBorderColor: 'orange',
-                tension: 0.3,
-                cubicInterpolationMode: 'monotone' as const
-            },
-        ],
-    }
+    private isFlag: boolean = true;
 
+    private checkIsTypeStore(): boolean {
+        const sgkText = DataTextStoresSGK_T.getDataText();
+        const nmeaText = DataTextStoresNMEA.getDataText();
+    
+        if (sgkText && sgkText.length > 0) {
+            this.isFlag = true;
+        } else if (nmeaText && nmeaText.length > 0) {
+            this.isFlag = false;
+        }
+    
+        return this.isFlag;
+    }
     render() {
-        console.log(DataTextStoresSGK_T.getTimeDataText());
         return (
             <div className="container">
-                <Line data={this.data} />
-                <Line data={this.coordinates} />
+                {this.checkIsTypeStore() ? <ChartsSGK_T /> : <ChartsNMEA />}
             </div>
         );
     }
