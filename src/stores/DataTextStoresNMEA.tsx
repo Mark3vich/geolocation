@@ -32,6 +32,10 @@ class DataTextStoresNMEA {
     @action getHdopDataText(): string[] | undefined {
         return this.dataText?.map((item) => String(item.hdop));
     }
+
+    @action getAtlitudeDataText(): string[] | undefined {
+        return this.dataText?.map((item) => String(item.msl_atlitude));
+    }
 }
 
 export default new DataTextStoresNMEA();

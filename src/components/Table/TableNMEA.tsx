@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { IDataTextNMEA } from "../../interface/IDataTextNMEA";
+import ConvertDataNMEA from "../../utils/NMEA/ConvertDataNMEA";
 
 
 class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
@@ -9,7 +10,7 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
 
     render() {
         const { dataText } = this.props;
-
+        ConvertDataNMEA.convertCoordinate(dataText[0].latitude);
         return (
             <table className="container table table-striped">
                 <thead>
@@ -34,9 +35,9 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
                             <th scope="row">{index + 1}</th>
                             <td>{dataText.message_id}</td>
                             <td>{dataText.utc_time}</td>
-                            <td>{dataText.latitude}</td>
+                            <td>{ConvertDataNMEA.convertCoordinate(dataText.latitude)}</td>
                             <td>{dataText.n_s_indicator}</td>
-                            <td>{dataText.longitude}</td>
+                            <td>{ConvertDataNMEA.convertCoordinate(dataText.longitude)}</td>
                             <td>{dataText.e_w_indicator}</td>
                             <td>{dataText.satellites_used}</td>
                             <td>{dataText.hdop}</td>

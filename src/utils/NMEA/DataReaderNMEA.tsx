@@ -9,7 +9,7 @@ class DataReaderNMEA {
         let dataText: IDataTextNMEA = {...dataTextObjectNMEA};
 
         if (ConvertDataNMEA.chackingTimeUTC(words[1])) {
-            dataText.utc_time = words[1];
+            dataText.utc_time = ConvertDataNMEA.convertTime(words[1]);
         } 
         if (words[2].length > 0) {
             dataText.latitude = words[2];
