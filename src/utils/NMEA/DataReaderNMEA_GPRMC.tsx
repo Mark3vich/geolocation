@@ -5,7 +5,7 @@ import ConvertDataNMEA from "./ConvertDataNMEA";
 
 class DataReaderNMEA_GPRMC {
     public static convertString(dataTextArray: IDataNMEA_GPRMC[], words: string[]): void {
-        let dataText: IDataNMEA_GPRMC = {...dataObjectNMEA_GPRMC};
+        let dataText: IDataNMEA_GPRMC = { ...dataObjectNMEA_GPRMC };
         dataText.message_id = words[0];
         if (ConvertDataNMEA.chackingTimeUTC(words[1])) {
             dataText.utc_time = ConvertDataNMEA.convertTime(words[1]);

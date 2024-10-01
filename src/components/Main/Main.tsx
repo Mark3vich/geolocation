@@ -20,7 +20,7 @@ class Main extends Component<{}, IMainState> {
   }
 
   handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file: File | undefined = event.target.files?.[0]; 
+    const file: File | undefined = event.target.files?.[0];
 
     if (file && file.type === 'text/plain') {
       const reader: FileReader = new FileReader();
@@ -28,12 +28,14 @@ class Main extends Component<{}, IMainState> {
         const content: string = e.target?.result as string;
         const dataAllTypeArray: IDataAll = {} as IDataAll;
         const dataText: IDataAll | null = new UniversalGeometryReaderData(content).universalGeometryReader(dataAllTypeArray);
-        if(dataText !== null) {
+        if (dataText !== null) {
           if (dataText.dataSGK_T?.length > 0) {
             DataStoresSGK_T.setDataText(dataText.dataSGK_T);
-          } else if(dataText.dataNMEA_GPGGA?.length > 0) {
+          }
+          if (dataText.dataNMEA_GPGGA?.length > 0) {
             DataStoresNMEA_GPGGA.setDataText(dataText.dataNMEA_GPGGA);
-          } else if(dataText.dataNMEA_GPRMC?.length > 0) {
+          }
+          if (dataText.dataNMEA_GPRMC?.length > 0) {
             DataStoresNMEA_GPRMC.setDataText(dataText.dataNMEA_GPRMC);
           }
         }
@@ -41,7 +43,7 @@ class Main extends Component<{}, IMainState> {
       };
       reader.readAsText(file);
     } else {
-      this.setState({ errorMessage: 'Please upload a valid .txt file'});
+      this.setState({ errorMessage: 'Please upload a valid .txt file' });
     }
   };
 
@@ -76,7 +78,7 @@ class Main extends Component<{}, IMainState> {
                 <h3>File Content NMEA GPRMC:</h3>
                 <TableNMEA_GPRMC dataText={DataStoresNMEA_GPRMC.getDataText() ?? []} />
               </div>
-            ): null}
+            ) : null}
           </div>
         </div>
       </div>
