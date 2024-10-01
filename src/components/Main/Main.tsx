@@ -13,6 +13,7 @@ import { IDataNMEA_GPRMC } from '../../interface/IDataNMEA_GPRMC';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
 import TableNMEA_GPGGA from '../Table/TableNMEA_GPGGA';
 import { IDataAll } from '../../interface/IDataAll';
+import TableNMEA_GPRMC from '../Table/TableNMEA_GPRMC';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -71,10 +72,16 @@ class Main extends Component<{}, IMainState> {
             ) : null}
             {DataStoresNMEA_GPGGA.getDataText()?.length ? (
               <div className="mt-4">
-                <h3>File Content NMEA:</h3>
+                <h3>File Content NMEA GPGGA:</h3>
                 <TableNMEA_GPGGA dataText={DataStoresNMEA_GPGGA.getDataText() ?? []} />
               </div>
             ) : null}
+            {DataStoresNMEA_GPRMC.getDataText()?.length ? (
+              <div className="mt-4">
+                <h3>File Content NMEA GPRMC:</h3>
+                <TableNMEA_GPRMC dataText={DataStoresNMEA_GPRMC.getDataText() ?? []} />
+              </div>
+            ): null}
           </div>
         </div>
       </div>
