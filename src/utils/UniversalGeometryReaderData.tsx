@@ -1,4 +1,5 @@
 import { MESSAGE_ID, REPORT } from "../consts/ConstsApp";
+import { IDataAll } from "../interface/IDataAll";
 import { IDataNMEA_GPGGA } from "../interface/IDataNMEA_GPGGA";
 import { IDataNMEA_GPRMC } from "../interface/IDataNMEA_GPRMC";
 import { IDataSGK_T } from "../interface/IDataSGK_T";
@@ -12,7 +13,7 @@ class UniversalGeometryReaderData {
         this.fileContent = fileContent;
     }
 
-    public universalGeometryReader(): null | IDataSGK_T[] | IDataNMEA_GPGGA[] | IDataNMEA_GPRMC[] {
+    public universalGeometryReader(dataAll: IDataAll): null | IDataAll {
         const lines:string[] = this.fileContent.split('\n').map(line => line.trim());
         const words:string[][] = lines.map(line => line.split(',').map(word => word.trim()));
 
@@ -32,12 +33,17 @@ class UniversalGeometryReaderData {
         }
 
         if(dataTextArraySGK_T.length > 0) {
-            return dataTextArraySGK_T;
+            dataAll.dataSGK_T = dataTextArraySGK_T;
         } else if(dataTextArrayNMEA_GPGGA.length > 0) {
-            return dataTextArrayNMEA_GPGGA;
+            dataAll.dataNMEA_GPGGA = dataTextArrayNMEA_GPGGA;
         } else if(dataTextArrayNMEA_GPRMC.length > 0) {
-            return dataTextArrayNMEA_GPRMC;
+            dataAll.dataNMEA_GPRMC = dataTextArrayNMEA_GPRMC;
         }
+
+        if(dataAll.dataSGK_T.length > 0 || dataAll.dataNMEA_GPGGA.length > 0 || dataAll.dataNMEA_GPRMC.length > 0) {
+            return dataAll;
+        }
+        
         return null;
     }
 }

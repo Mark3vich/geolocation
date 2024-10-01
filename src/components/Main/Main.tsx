@@ -12,6 +12,7 @@ import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 import { IDataNMEA_GPRMC } from '../../interface/IDataNMEA_GPRMC';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
 import TableNMEA_GPGGA from '../Table/TableNMEA_GPGGA';
+import { IDataAll } from '../../interface/IDataAll';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -29,17 +30,15 @@ class Main extends Component<{}, IMainState> {
       const reader: FileReader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content: string = e.target?.result as string;
-        const dataText: IDataSGK_T[] | IDataNMEA_GPGGA[] | IDataNMEA_GPRMC[] | null = new UniversalGeometryReaderData(content).universalGeometryReader();
+        const dataAllTypeArray: IDataAll = {} as IDataAll;
+        const dataText: IDataAll | null = new UniversalGeometryReaderData(content).universalGeometryReader(dataAllTypeArray);
         if(dataText !== null) {
-          if (ConvertDataSGK_T.isSGKFormat(dataText)) {
-            const typedDataText: IDataSGK_T[] = dataText as IDataSGK_T[];
-            DataStoresSGK_T.setDataText(typedDataText);
-          } else if(ConvertDataNMEA.isNMEAFormatGPGGA(dataText)) {
-            const typedDataText: IDataNMEA_GPGGA[] = dataText as IDataNMEA_GPGGA[];
-            DataStoresNMEA_GPGGA.setDataText(typedDataText);
-          } else if(ConvertDataNMEA.isNMEAFormatGPRMC(dataText)) {
-            const typedDataText: IDataNMEA_GPRMC[] = dataText as IDataNMEA_GPRMC[];
-            DataStoresNMEA_GPRMC.setDataText(typedDataText);
+          if (dataText.dataSGK_T.length > 0) {
+            DataStoresSGK_T.setDataText(dataText.dataSGK_T);
+          } else if(dataText.dataNMEA_GPGGA.length > 0) {
+            DataStoresNMEA_GPGGA.setDataText(dataText.dataNMEA_GPGGA);
+          } else if(dataText.dataNMEA_GPRMC.length > 0) {
+            DataStoresNMEA_GPRMC.setDataText(dataText.dataNMEA_GPRMC);
           }
         }
         this.setState({ errorMessage: '' });
