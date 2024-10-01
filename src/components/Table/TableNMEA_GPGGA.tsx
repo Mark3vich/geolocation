@@ -10,7 +10,6 @@ class TableNMEA_GPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
 
     render() {
         const { dataText } = this.props;
-        ConvertDataNMEA.convertCoordinate(dataText[0].latitude);
         return (
             <table className="container table table-striped">
                 <thead>

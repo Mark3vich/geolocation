@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { IMainState } from '../../interface/IMainState';
-import TableSGK_T from '../Table/TableSGK_T';
-import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
+
 import { observer } from 'mobx-react';
-import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
+
+import TableSGK_T from '../Table/TableSGK_T';
+import { IDataAll } from '../../interface/IDataAll';
+import TableNMEA_GPGGA from '../Table/TableNMEA_GPGGA';
+import TableNMEA_GPRMC from '../Table/TableNMEA_GPRMC';
+import TableNMEA_GPGSV from '../Table/TableNMEA_GPGSV';
+import { IMainState } from '../../interface/IMainState';
+import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
 import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
-import TableNMEA_GPGGA from '../Table/TableNMEA_GPGGA';
-import { IDataAll } from '../../interface/IDataAll';
-import TableNMEA_GPRMC from '../Table/TableNMEA_GPRMC';
+import DataStoresNMEA_GPGSV from '../../stores/DataStoresNMEA_GPGSV';
+import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -37,6 +41,9 @@ class Main extends Component<{}, IMainState> {
           }
           if (dataText.dataNMEA_GPRMC?.length > 0) {
             DataStoresNMEA_GPRMC.setDataText(dataText.dataNMEA_GPRMC);
+          }
+          if (dataText.dataNMEA_GPGSV?.length > 0) {
+            DataStoresNMEA_GPGSV.setDataText(dataText.dataNMEA_GPGSV);
           }
         }
         this.setState({ errorMessage: '' });
@@ -77,6 +84,12 @@ class Main extends Component<{}, IMainState> {
               <div className="mt-4">
                 <h3>File Content NMEA GPRMC:</h3>
                 <TableNMEA_GPRMC dataText={DataStoresNMEA_GPRMC.getDataText() ?? []} />
+              </div>
+            ) : null}
+            {DataStoresNMEA_GPGSV.getDataText()?.length ? (
+              <div className="mt-4">
+                <h3>File Content NMEA GPGSV:</h3>
+                <TableNMEA_GPGSV dataText={DataStoresNMEA_GPGSV.getDataText() ?? []} />
               </div>
             ) : null}
           </div>
