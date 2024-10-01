@@ -1,17 +1,17 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataTextSGK_T } from "../interface/IDataTextSGK_T";
+import { IDataSGK_T } from "../interface/IDataSGK_T";
 
-class DataTextStoresSGK_T {
-    @observable dataText: IDataTextSGK_T[] | null = [];
+class DataStoresSGK_T {
+    @observable dataText: IDataSGK_T[] | null = [];
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataTextSGK_T[] | null): void {
+    @action setDataText(dataText: IDataSGK_T[] | null): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataTextSGK_T[] | null {
+    @action getDataText(): IDataSGK_T[] | null {
         return this.dataText;
     }
 
@@ -32,4 +32,4 @@ class DataTextStoresSGK_T {
     }
 };
 
-export default new DataTextStoresSGK_T();
+export default new DataStoresSGK_T();

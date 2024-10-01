@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
+import { IDataSGK_T } from '../../interface/IDataSGK_T';
 import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
 
-class TableSGK_T extends Component<{ dataText: IDataTextSGK_T[] }> {
-    constructor(props: { dataText: IDataTextSGK_T[] }) {
+class TableSGK_T extends Component<{ dataText: IDataSGK_T[] }> {
+    constructor(props: { dataText: IDataSGK_T[] }) {
         super(props);
     };
     render() {

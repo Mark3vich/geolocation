@@ -1,10 +1,10 @@
 import { Component } from "react";
-import { IDataTextNMEA } from "../../interface/IDataTextNMEA";
+import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
 import ConvertDataNMEA from "../../utils/NMEA/ConvertDataNMEA";
 
 
-class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
-    constructor(props: { dataText: IDataTextNMEA[] }) {
+class TableNMEA_GPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
+    constructor(props: { dataText: IDataNMEA_GPGGA[] }) {
         super(props);
     };
 
@@ -30,7 +30,7 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataText.map((dataText: IDataTextNMEA, index) => (
+                    {dataText.map((dataText: IDataNMEA_GPGGA, index) => (
                         <tr key={index}>
                             <th scope="row">{index + 1}</th>
                             <td>{dataText.message_id}</td>
@@ -52,4 +52,4 @@ class TableNMEA extends Component<{ dataText: IDataTextNMEA[] }> {
     }
 }
 
-export default TableNMEA;
+export default TableNMEA_GPGGA;

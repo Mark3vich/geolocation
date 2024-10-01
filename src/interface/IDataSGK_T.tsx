@@ -1,4 +1,4 @@
-export interface IDataTextSGK_T {
+export interface IDataSGK_T {
     report: string;                 // Текст отчёта 
     device_id: string;              // Идентификационный код для центра управления
     date: string;                   // Значение даты

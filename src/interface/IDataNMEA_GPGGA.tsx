@@ -1,4 +1,4 @@
-export interface IDataTextNMEA {
+export interface IDataNMEA_GPGGA {
     message_id: string;
     utc_time: string;
     latitude: string;

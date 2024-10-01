@@ -33,13 +33,9 @@ class AbstractConvertAll {
     public static convertCoordinate(coordinates: string): string {
         // Split the coordinates into the main (degrees) and secondary (minutes) parts
         let mainAndSecondaryPart: string[] = coordinates.split('.');
-        let mainPartLength: number = mainAndSecondaryPart[0].length;
         let mainPart: string = this.removeZeroFromTheLeft(mainAndSecondaryPart[0]);
         let secondaryPart = mainAndSecondaryPart[1];
         
-        // Calculate how many leading zeros were removed
-        let difference: number = mainPartLength - mainPart.length;
-    
         // Ensure the main part is exactly 2 digits (50)
         if (mainPart.length >= 2) {
             mainPart = mainPart.slice(0, 2); // Take the first two digits (50)
@@ -63,18 +59,6 @@ class AbstractConvertAll {
         // Return formatted coordinate
         return mainPart + "°" + seconds + "'";
     }
-
-    // public static convertCoordinate(coordinates: string): string {
-    //     let seconds: string = String(parseFloat("0." + coordinates[6] + coordinates[7] + coordinates[8] + coordinates[9]) * 60);
-    //     seconds = parseFloat(seconds).toFixed(3).replace('.', ',');
-    //     let strCoordinates: string;
-    //     if (coordinates[0] !== "0") {
-    //         strCoordinates = coordinates[0] + coordinates[1] + coordinates[2] + "°" + coordinates[3] + coordinates[4] + "'" + seconds;
-    //     } else {
-    //         strCoordinates = coordinates[1] + coordinates[2] + "°" + coordinates[3] + coordinates[4] + "'" + seconds;
-    //     }
-    //     return strCoordinates;
-    // }
 
     public static convertToCoordinatesString(coordinates: string[] | undefined): number[] | undefined {     
         return coordinates?.map(coordinate => {

@@ -4,9 +4,9 @@ import L from 'leaflet';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-import DataTextStore from '../../stores/DataTextStoresSGK_T';
+import DataTextStore from '../../stores/DataStoresSGK_T';
 import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
-import { IDataTextSGK_T } from '../../interface/IDataTextSGK_T';
+import { IDataSGK_T } from '../../interface/IDataSGK_T';
 import { ICoordinates } from '../../interface/ICoordinates';
 
 L.Icon.Default.mergeOptions({
@@ -16,7 +16,7 @@ L.Icon.Default.mergeOptions({
 });
 
 class Map extends Component {
-    private dataText = DataTextStore.getDataText() as IDataTextSGK_T[];
+    private dataText = DataTextStore.getDataText() as IDataSGK_T[];
     private coordinates: ICoordinates[]  = this.dataText ? this.dataText?.map(item => ({
                 latitude: ConvertDataSGK_T.convertToCoordinateString(item.latitude),
                 longitude: ConvertDataSGK_T.convertToCoordinateString(item.longitude),

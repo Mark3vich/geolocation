@@ -3,8 +3,8 @@ import { Chart, registerables } from 'chart.js';
 import { observer } from 'mobx-react';
 import ChartsSGK_T from "./ChartsSGK_T/ChartsSGK_T";
 import ChartsNMEA from "./ChartsNMEA/ChartsNMEA";
-import DataTextStoresSGK_T from "../../stores/DataTextStoresSGK_T";
-import DataTextStoresNMEA from "../../stores/DataTextStoresNMEA";
+import DataStoresSGK_T from "../../stores/DataStoresSGK_T";
+import DataStoresNMEA from "../../stores/DataStoresNMEA_GPGGA";
 
 Chart.register(...registerables);
 
@@ -13,8 +13,8 @@ class Charts extends Component {
     private isFlag: boolean = true;
 
     private checkIsTypeStore(): boolean {
-        const sgkText = DataTextStoresSGK_T.getDataText();
-        const nmeaText = DataTextStoresNMEA.getDataText();
+        const sgkText = DataStoresSGK_T.getDataText();
+        const nmeaText = DataStoresNMEA.getDataText();
     
         if (sgkText && sgkText.length > 0) {
             this.isFlag = true;

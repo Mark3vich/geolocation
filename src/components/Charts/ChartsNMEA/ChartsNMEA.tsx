@@ -1,16 +1,16 @@
 import { Component } from "react";
-import DataTextStoresNMEA from "../../../stores/DataTextStoresNMEA";
+import DataStoresNMEA from "../../../stores/DataStoresNMEA_GPGGA";
 import { Line } from "react-chartjs-2";
 import ConvertDataNMEA from "../../../utils/NMEA/ConvertDataNMEA";
 
 class ChartsNMEA extends Component {
     private hdopTime = {
-        labels: DataTextStoresNMEA.getTimeDataText(),
+        labels: DataStoresNMEA.getTimeDataText(),
 
         datasets: [
             {
                 label: "Hdop/Time",
-                data: DataTextStoresNMEA.getHdopDataText(),
+                data: DataStoresNMEA.getHdopDataText(),
                 backgroundColor: "rgba(255, 99, 132, 0.2)",
                 borderColor: "rgba(255, 99, 132, 1)",
                 borderWidth: 1,
@@ -25,12 +25,12 @@ class ChartsNMEA extends Component {
     }
 
     private atlitudeTime = {
-        labels: DataTextStoresNMEA.getTimeDataText(),
+        labels: DataStoresNMEA.getTimeDataText(),
     
         datasets: [
             {
                 label: "Altitude/Time",
-                data: DataTextStoresNMEA.getAtlitudeDataText(),
+                data: DataStoresNMEA.getAtlitudeDataText(),
                 backgroundColor: "rgba(0, 100, 0, 0.2)", 
                 borderColor: "rgba(0, 100, 0, 1)", 
                 borderWidth: 1,
@@ -45,14 +45,14 @@ class ChartsNMEA extends Component {
     }    
 
     private coordinates = {
-        labels: ConvertDataNMEA.convertToCoordinatesString(DataTextStoresNMEA.getLatitudeDataText()),
+        labels: ConvertDataNMEA.convertToCoordinatesString(DataStoresNMEA.getLatitudeDataText()),
         datasets: [
             {
                 label: 'Latitude/Longitude',
                 backgroundColor: 'rgba(255, 165, 0, 1)',
                 borderColor: 'rgba(255, 165, 0, 1)',
                 borderWidth: 1,
-                data: ConvertDataNMEA.convertToCoordinatesString(DataTextStoresNMEA.getLongitudeDataText()),
+                data: ConvertDataNMEA.convertToCoordinatesString(DataStoresNMEA.getLongitudeDataText()),
                 pointBackgroundColor: 'orange',
                 pointBorderColor: 'orange',
                 tension: 0.3,
