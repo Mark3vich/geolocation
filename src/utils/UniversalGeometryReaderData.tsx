@@ -29,18 +29,18 @@ class UniversalGeometryReaderData {
                 DataReaderNMEA_GPGGA.convertString(dataTextArrayNMEA_GPGGA, words[i]);
             }  else if(words[i][0] === MESSAGE_ID[1]) {
                 DataReaderNMEA_GPRMC.convertString(dataTextArrayNMEA_GPRMC, words[i]);
-            }
+            } 
         }
 
-        if(dataTextArraySGK_T.length > 0) {
+        if(dataTextArraySGK_T?.length > 0) {
             dataAll.dataSGK_T = dataTextArraySGK_T;
-        } else if(dataTextArrayNMEA_GPGGA.length > 0) {
+        } else if(dataTextArrayNMEA_GPGGA?.length > 0) {
             dataAll.dataNMEA_GPGGA = dataTextArrayNMEA_GPGGA;
-        } else if(dataTextArrayNMEA_GPRMC.length > 0) {
+        } else if(dataTextArrayNMEA_GPRMC?.length > 0) {
             dataAll.dataNMEA_GPRMC = dataTextArrayNMEA_GPRMC;
         }
 
-        if(dataAll.dataSGK_T.length > 0 || dataAll.dataNMEA_GPGGA.length > 0 || dataAll.dataNMEA_GPRMC.length > 0) {
+        if(dataAll.dataSGK_T?.length > 0 || dataAll.dataNMEA_GPGGA?.length > 0 || dataAll.dataNMEA_GPRMC?.length > 0) {
             return dataAll;
         }
         

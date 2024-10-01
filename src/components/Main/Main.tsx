@@ -3,13 +3,8 @@ import { IMainState } from '../../interface/IMainState';
 import TableSGK_T from '../Table/TableSGK_T';
 import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
 import { observer } from 'mobx-react';
-import { IDataSGK_T } from '../../interface/IDataSGK_T';
 import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
-import { IDataNMEA_GPGGA } from '../../interface/IDataNMEA_GPGGA';
-import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
-import ConvertDataNMEA from '../../utils/NMEA/ConvertDataNMEA';
 import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
-import { IDataNMEA_GPRMC } from '../../interface/IDataNMEA_GPRMC';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
 import TableNMEA_GPGGA from '../Table/TableNMEA_GPGGA';
 import { IDataAll } from '../../interface/IDataAll';
@@ -34,11 +29,11 @@ class Main extends Component<{}, IMainState> {
         const dataAllTypeArray: IDataAll = {} as IDataAll;
         const dataText: IDataAll | null = new UniversalGeometryReaderData(content).universalGeometryReader(dataAllTypeArray);
         if(dataText !== null) {
-          if (dataText.dataSGK_T.length > 0) {
+          if (dataText.dataSGK_T?.length > 0) {
             DataStoresSGK_T.setDataText(dataText.dataSGK_T);
-          } else if(dataText.dataNMEA_GPGGA.length > 0) {
+          } else if(dataText.dataNMEA_GPGGA?.length > 0) {
             DataStoresNMEA_GPGGA.setDataText(dataText.dataNMEA_GPGGA);
-          } else if(dataText.dataNMEA_GPRMC.length > 0) {
+          } else if(dataText.dataNMEA_GPRMC?.length > 0) {
             DataStoresNMEA_GPRMC.setDataText(dataText.dataNMEA_GPRMC);
           }
         }
@@ -52,7 +47,7 @@ class Main extends Component<{}, IMainState> {
 
   render() {
     const { errorMessage } = this.state;
-    
+    console.log(DataStoresNMEA_GPRMC.getDataText(), DataStoresNMEA_GPGGA.getDataText());
     return (
       <div className="container mt-4">
         <div className="row">
