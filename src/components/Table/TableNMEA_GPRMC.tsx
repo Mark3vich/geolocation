@@ -23,9 +23,9 @@ class TableNMEA_GPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
                         <th scope="col">N/S</th>
                         <th scope="col">LONGITUDE</th>
                         <th scope="col">E/W</th>
-                        <th scope="col">SPEED_OVER_GROUP</th>
+                        <th scope="col">SPEED</th>
                         <th scope="col">DATA</th>
-                        <th scope="col">MAGNETIC_VARIATION</th>
+                        <th scope="col">MAGNETIC</th>
                         <th scope="col">CHECKSUM</th>
                     </tr>
                 </thead>

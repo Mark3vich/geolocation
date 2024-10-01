@@ -49,7 +49,7 @@ class Main extends Component<{}, IMainState> {
 
   render() {
     const { errorMessage } = this.state;
-    console.log(DataStoresNMEA_GPRMC.getDataText(), DataStoresNMEA_GPGGA.getDataText());
+
     return (
       <div className="container mt-4">
         <div className="row">

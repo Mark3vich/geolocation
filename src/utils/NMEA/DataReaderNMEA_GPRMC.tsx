@@ -32,8 +32,8 @@ class DataReaderNMEA_GPRMC {
         if (words[9].length > 0) {
             dataText.magnetic_variation = words[9];
         }
-        if (words[10].length > 0) {
-            dataText.checksum = words[10];
+        if (words[12].length > 0) {
+            dataText.checksum = words[12];
         }
         dataTextArray.push(dataText);
     }
