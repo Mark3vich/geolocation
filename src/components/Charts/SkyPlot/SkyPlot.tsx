@@ -15,7 +15,7 @@ class SkyPlot extends Component<{}, ISkyPlotState> {
         };
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         const satelliteIds: string[] | undefined = DataStoresNMEA_GPGSV.getMessageId();
         const azimuths: number[] | undefined = DataStoresNMEA_GPGSV.getAzimuth();
         const zenithAngles: number[] | undefined = ConvertDataNMEA.convertZenithAngles(azimuths);

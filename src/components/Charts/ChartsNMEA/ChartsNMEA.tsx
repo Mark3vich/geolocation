@@ -2,6 +2,7 @@ import { Component } from "react";
 import DataStoresNMEA from "../../../stores/DataStoresNMEA_GPGGA";
 import { Line } from "react-chartjs-2";
 import ConvertDataNMEA from "../../../utils/NMEA/ConvertDataNMEA";
+import TrajectoryPlot from "./TrajectoryPlot";
 
 class ChartsNMEA extends Component {
     private hdopTime = {
@@ -67,6 +68,7 @@ class ChartsNMEA extends Component {
                 <Line data={this.hdopTime} />
                 <Line data={this.atlitudeTime} />
                 <Line data={this.coordinates} />
+                <TrajectoryPlot />
             </div>
         );
     }

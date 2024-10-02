@@ -8,6 +8,7 @@ import DataTextStore from '../../stores/DataStoresSGK_T';
 import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
 import { IDataSGK_T } from '../../interface/IDataSGK_T';
 import { ICoordinates } from '../../interface/ICoordinates';
+import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 
 L.Icon.Default.mergeOptions({
     iconRetinaUrl,
@@ -16,13 +17,13 @@ L.Icon.Default.mergeOptions({
 });
 
 class Map extends Component {
-    private dataText = DataTextStore.getDataText() as IDataSGK_T[];
+    private dataText: IDataSGK_T[] | null = DataTextStore.getDataText();
     private coordinates: ICoordinates[]  = this.dataText ? this.dataText?.map(item => ({
                 latitude: ConvertDataSGK_T.convertToCoordinateString(item.latitude),
                 longitude: ConvertDataSGK_T.convertToCoordinateString(item.longitude),
                 device_id: item.device_id
             })) : [];
-
+    
     render() {
         return (
             <div className="container">
