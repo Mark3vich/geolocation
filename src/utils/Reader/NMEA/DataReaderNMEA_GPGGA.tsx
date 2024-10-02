@@ -1,6 +1,6 @@
-import { EAST, NORTH, SOUTH, WEST } from "../../consts/ConstsApp";
-import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
-import { dataObjectNMEA_GPGGA } from "../../object/DataObjectNMEA_GPGGA";
+import { EAST, NORTH, SOUTH, WEST } from "../../../consts/ConstsApp";
+import { IDataNMEA_GPGGA } from "../../../interface/IDataNMEA_GPGGA";
+import { dataObjectNMEA_GPGGA } from "../../../object/DataObjectNMEA_GPGGA";
 import ConvertDataNMEA from "./ConvertDataNMEA";
 
 class DataReaderNMEA_GPGGA {

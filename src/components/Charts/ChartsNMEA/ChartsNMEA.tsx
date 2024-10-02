@@ -1,7 +1,7 @@
 import { Component } from "react";
 import DataStoresNMEA from "../../../stores/DataStoresNMEA_GPGGA";
 import { Line } from "react-chartjs-2";
-import ConvertDataNMEA from "../../../utils/NMEA/ConvertDataNMEA";
+import ConvertDataNMEA from "../../../utils/Reader/NMEA/ConvertDataNMEA";
 import TrajectoryPlot from "./TrajectoryPlot";
 
 class ChartsNMEA extends Component {

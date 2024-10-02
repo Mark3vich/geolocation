@@ -1,10 +1,10 @@
-import { IDataAll } from "../interface/IDataAll";
-import { IDataSGK_T } from "../interface/IDataSGK_T";
+import { IDataAll } from "../../interface/IDataAll";
+import { IDataSGK_T } from "../../interface/IDataSGK_T";
 import DataReaderSGK_T from "./SGK_T/DataReaderSGK_T";
-import { MESSAGE_ID, REPORT } from "../consts/ConstsApp";
-import { IDataNMEA_GPGGA } from "../interface/IDataNMEA_GPGGA";
-import { IDataNMEA_GPGSV } from "../interface/IDataNMEA_GPGSV";
-import { IDataNMEA_GPRMC } from "../interface/IDataNMEA_GPRMC";
+import { MESSAGE_ID, REPORT } from "../../consts/ConstsApp";
+import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
+import { IDataNMEA_GPGSV } from "../../interface/IDataNMEA_GPGSV";
+import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
 import DataReaderNMEA_GPGGA from "./NMEA/DataReaderNMEA_GPGGA";
 import DataReaderNMEA_GPGSV from "./NMEA/DataReaderNMEA_GPGSV";
 import DataReaderNMEA_GPRMC from "./NMEA/DataReaderNMEA_GPRMC";

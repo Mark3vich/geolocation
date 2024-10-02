@@ -1,5 +1,5 @@
 import { Component } from "react";
-import ConvertDataNMEA from "../../utils/NMEA/ConvertDataNMEA";
+import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
 
 

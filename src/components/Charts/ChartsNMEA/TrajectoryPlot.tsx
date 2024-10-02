@@ -3,7 +3,7 @@ import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, PointElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 import DataStoresNMEA_GPGGA from '../../../stores/DataStoresNMEA_GPGGA';
 import { IDataNMEA_GPGGA } from '../../../interface/IDataNMEA_GPGGA';
-import ConvertDataNMEA from '../../../utils/NMEA/ConvertDataNMEA';
+import ConvertDataNMEA from '../../../utils/Reader/NMEA/ConvertDataNMEA';
 import { IPoint } from '../../../interface/IPoint';
 import { TrajectoryState } from '../../../interface/ITrajectoryState';
 

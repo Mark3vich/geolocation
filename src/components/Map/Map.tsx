@@ -5,7 +5,7 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import DataTextStore from '../../stores/DataStoresSGK_T';
-import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
+import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
 import { IDataSGK_T } from '../../interface/IDataSGK_T';
 import { ICoordinates } from '../../interface/ICoordinates';
 import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';

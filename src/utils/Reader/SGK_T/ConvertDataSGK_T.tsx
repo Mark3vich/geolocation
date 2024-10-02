@@ -1,4 +1,4 @@
-import { IDataSGK_T } from "../../interface/IDataSGK_T";
+import { IDataSGK_T } from "../../../interface/IDataSGK_T";
 import AbstractConvertAll from "../AbstractConvertAll";
 
 class ConvertDataSGK_T extends AbstractConvertAll {

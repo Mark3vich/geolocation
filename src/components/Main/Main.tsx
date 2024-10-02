@@ -12,7 +12,7 @@ import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
 import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
 import DataStoresNMEA_GPGSV from '../../stores/DataStoresNMEA_GPGSV';
-import UniversalGeometryReaderData from '../../utils/UniversalGeometryReaderData';
+import UniversalGeometryReaderData from '../../utils/Reader/UniversalGeometryReaderData';
 
 @observer
 class Main extends Component<{}, IMainState> {

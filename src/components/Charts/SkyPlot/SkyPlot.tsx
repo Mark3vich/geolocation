@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { PolarArea } from 'react-chartjs-2';
-import ConvertDataNMEA from "../../../utils/NMEA/ConvertDataNMEA";
+import ConvertDataNMEA from "../../../utils/Reader/NMEA/ConvertDataNMEA";
 import DataStoresNMEA_GPGSV from "../../../stores/DataStoresNMEA_GPGSV";
 import { ISkyPlotState } from "../../../interface/ISkyPlotState";
 

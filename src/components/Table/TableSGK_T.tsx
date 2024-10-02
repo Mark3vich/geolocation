@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IDataSGK_T } from '../../interface/IDataSGK_T';
-import ConvertDataSGK_T from '../../utils/SGK_T/ConvertDataSGK_T';
+import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
 
 class TableSGK_T extends Component<{ dataText: IDataSGK_T[] }> {
     constructor(props: { dataText: IDataSGK_T[] }) {

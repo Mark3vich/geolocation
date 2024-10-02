@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Line } from "react-chartjs-2";
-import ConvertDataSGK_T from "../../../utils/SGK_T/ConvertDataSGK_T";
+import ConvertDataSGK_T from "../../../utils/Reader/SGK_T/ConvertDataSGK_T";
 import DataStoresSGK_T from "../../../stores/DataStoresSGK_T";
 
 class ChartsSGK_T extends Component {

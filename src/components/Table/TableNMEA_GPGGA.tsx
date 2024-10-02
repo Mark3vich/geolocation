@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
-import ConvertDataNMEA from "../../utils/NMEA/ConvertDataNMEA";
+import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 
 
 class TableNMEA_GPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {

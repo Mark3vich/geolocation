@@ -1,6 +1,6 @@
-import { EAST, NORTH, SOUTH, WEST } from "../../consts/ConstsApp";
-import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
-import { dataObjectNMEA_GPRMC } from "../../object/DataObjectNMEA_GPRMC";
+import { EAST, NORTH, SOUTH, WEST } from "../../../consts/ConstsApp";
+import { IDataNMEA_GPRMC } from "../../../interface/IDataNMEA_GPRMC";
+import { dataObjectNMEA_GPRMC } from "../../../object/DataObjectNMEA_GPRMC";
 import ConvertDataNMEA from "./ConvertDataNMEA";
 
 class DataReaderNMEA_GPRMC {
