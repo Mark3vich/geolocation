@@ -4,18 +4,10 @@ import { Chart as ChartJS, PointElement, LinearScale, Title, Tooltip, Legend } f
 import DataStoresNMEA_GPGGA from '../../../stores/DataStoresNMEA_GPGGA';
 import { IDataNMEA_GPGGA } from '../../../interface/IDataNMEA_GPGGA';
 import ConvertDataNMEA from '../../../utils/NMEA/ConvertDataNMEA';
+import { IPoint } from '../../../interface/IPoint';
+import { TrajectoryState } from '../../../interface/ITrajectoryState';
 
 ChartJS.register(PointElement, LinearScale, Title, Tooltip, Legend);
-
-interface IPoint {
-    x: number;
-    y: number;
-    hdop: number;
-}
-
-interface TrajectoryState {
-    data: IPoint[];
-}
 
 class TrajectoryPlot extends Component<{}, TrajectoryState> {
     constructor(props: {}) {
