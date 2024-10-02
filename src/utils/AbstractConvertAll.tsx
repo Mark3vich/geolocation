@@ -1,6 +1,6 @@
 class AbstractConvertAll {
-    public static convertZenithAngles(data: string[]): number[] { 
-        return data.map(elevation => 90 - Number(elevation));
+    public static convertZenithAngles(data: number[] | undefined): number[] | undefined { 
+        return data?.map(elevation => 90 - Number(elevation));
     } 
 
     public static isInteger(value: string): boolean {
