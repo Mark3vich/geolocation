@@ -2,18 +2,12 @@ import React, { Component } from "react";
 import { PolarArea } from 'react-chartjs-2';
 import ConvertDataNMEA from "../../../utils/NMEA/ConvertDataNMEA";
 import DataStoresNMEA_GPGSV from "../../../stores/DataStoresNMEA_GPGSV";
+import { ISkyPlotState } from "../../../interface/ISkyPlotState";
 
-interface SkyPlotState {
-    satelliteIds: string[] | undefined;
-    azimuths: number[] | undefined;
-    zenithAngles: number[] | undefined;
-}
-
-class SkyPlot extends Component<{}, SkyPlotState> {
+class SkyPlot extends Component<{}, ISkyPlotState> {
     constructor(props: {}) {
         super(props);
 
-        // Инициализация состояния компонента
         this.state = {
             satelliteIds: [],
             azimuths: [],
@@ -22,12 +16,10 @@ class SkyPlot extends Component<{}, SkyPlotState> {
     }
 
     componentDidMount() {
-        // Получение данных из источников данных
         const satelliteIds: string[] | undefined = DataStoresNMEA_GPGSV.getMessageId();
         const azimuths: number[] | undefined = DataStoresNMEA_GPGSV.getAzimuth();
         const zenithAngles: number[] | undefined = ConvertDataNMEA.convertZenithAngles(azimuths);
 
-        // Обновляем состояние компонента
         this.setState({
             satelliteIds,
             azimuths,
@@ -36,7 +28,7 @@ class SkyPlot extends Component<{}, SkyPlotState> {
     }
 
     render() {
-        const { satelliteIds, azimuths, zenithAngles } = this.state;
+        const { satelliteIds, zenithAngles } = this.state;
 
         const data = {
             labels: satelliteIds, // Имена спутников (подписи)
@@ -64,10 +56,9 @@ class SkyPlot extends Component<{}, SkyPlotState> {
                         label: (tooltipItem: any) => {
                             const index = tooltipItem.dataIndex;
                             
-                            // Проверка, что satelliteIds, azimuths и zenithAngles существуют
                             const satellite = this.state.satelliteIds?.[index] || 'Неизвестный спутник';
                             const azimuth = this.state.azimuths?.[index] || 0;
-                            const elevation = this.state.zenithAngles?.[index] || 0; // Если данных нет, используется значение по умолчанию
+                            const elevation = this.state.zenithAngles?.[index] || 0; 
                 
                             return `${satellite}: Азимут = ${azimuth}°, Угол возвышения = ${elevation}°`;
                         }
