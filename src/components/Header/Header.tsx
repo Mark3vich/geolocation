@@ -42,6 +42,11 @@ class Header extends Component {
                   SkyPlot
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/statistics">
+                  Statistics
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

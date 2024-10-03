@@ -3,20 +3,20 @@ import { IDataNMEA_Coordinates } from "../interface/IDataNMEA_Coordinates";
 import { IDataNMEA_GPGGA } from "../interface/IDataNMEA_GPGGA";
 import { IDataSGK_T } from "../interface/IDataSGK_T";
 
-class DataStoresNMEA_Coordinates {
-    @observable dataText: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] | null = null;
+class DataStoresVectorPNS {
+    @observable dataText: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] = [];
     
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] | null): void {
+    @action setDataText(dataText: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[]): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] | null {
+    @action getDataText(): IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] {
         return this.dataText;
     }
 }
 
-export default new DataStoresNMEA_Coordinates();
+export default new DataStoresVectorPNS();

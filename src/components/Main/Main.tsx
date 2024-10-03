@@ -13,6 +13,8 @@ import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
 import DataStoresNMEA_GPGSV from '../../stores/DataStoresNMEA_GPGSV';
 import UniversalGeometryReaderData from '../../utils/Reader/UniversalGeometryReaderData';
+import DataStoresVectorPNS from '../../stores/DataStoresVectorPNS';
+import AverageCoordinatesOfPNS from '../../utils/Math/AverageCoordinatesOfPNS';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -32,6 +34,8 @@ class Main extends Component<{}, IMainState> {
         const content: string = e.target?.result as string;
         const dataAllTypeArray: IDataAll = {} as IDataAll;
         const dataText: IDataAll | null = new UniversalGeometryReaderData(content).universalGeometryReader(dataAllTypeArray);
+
+        // Установка состояний для таблиц
         if (dataText !== null) {
           if (dataText.dataSGK_T?.length > 0) {
             DataStoresSGK_T.setDataText(dataText.dataSGK_T);
@@ -46,6 +50,17 @@ class Main extends Component<{}, IMainState> {
             DataStoresNMEA_GPGSV.setDataText(dataText.dataNMEA_GPGSV);
           }
         }
+
+        // Установка состояний для математических вычислений
+        let dataSGK_T = DataStoresSGK_T.getDataText() ?? [];
+        let dataNMEA_GPGGA = DataStoresNMEA_GPGGA.getDataText() ?? [];
+        if (dataSGK_T.length > 0) {
+          DataStoresVectorPNS.setDataText(dataSGK_T);
+        }
+        if (dataNMEA_GPGGA.length > 0) {
+          DataStoresVectorPNS.setDataText(dataNMEA_GPGGA);
+        }
+
         this.setState({ errorMessage: '' });
       };
       reader.readAsText(file);
