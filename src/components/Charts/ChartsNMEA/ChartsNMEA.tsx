@@ -3,6 +3,7 @@ import DataStoresNMEA from "../../../stores/DataStoresNMEA_GPGGA";
 import { Line } from "react-chartjs-2";
 import ConvertDataNMEA from "../../../utils/Reader/NMEA/ConvertDataNMEA";
 import TrajectoryPlot from "./TrajectoryPlot";
+import ScatterPlotRelativeToAverage from "./ScatterPlotRelativeToAverage";
 
 class ChartsNMEA extends Component {
     private hdopTime = {
@@ -69,6 +70,7 @@ class ChartsNMEA extends Component {
                 <Line data={this.atlitudeTime} />
                 <Line data={this.coordinates} />
                 <TrajectoryPlot />
+                <ScatterPlotRelativeToAverage />
             </div>
         );
     }
