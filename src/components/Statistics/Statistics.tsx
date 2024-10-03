@@ -3,7 +3,9 @@ import DataStoresVectorPNS from "../../stores/DataStoresVectorPNS";
 import AverageCoordinatesOfPNS from "../../utils/Math/AverageCoordinatesOfPNS";
 
 class Statistics extends Component {
+
     render() {
+        console.log(DataStoresVectorPNS.getDataText());
         return ( 
             <div className="container">
                 {DataStoresVectorPNS.getDataText()?.length ? (
