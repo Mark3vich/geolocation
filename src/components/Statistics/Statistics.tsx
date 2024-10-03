@@ -3,11 +3,12 @@ import DataStoresVectorPNS from "../../stores/DataStoresVectorPNS";
 import AverageCoordinatesOfPNS from "../../utils/Math/AverageCoordinatesOfPNS";
 import DeviationsCoordinates from "../../utils/Math/DeviationsCoordinates";
 import EvaluateStatisticalLocations from "../../utils/Math/EvaluateStatisticalLocations";
+import EvaluationResultsSCO from "../../utils/Math/EvaluationResultsSCO";
 
 class Statistics extends Component {
 
     render() {
-        return ( 
+        return (
             <div className="container">
                 {DataStoresVectorPNS.getDataText()?.length ? (
                     <div className="mt-4">
@@ -41,8 +42,8 @@ class Statistics extends Component {
                                 </div>
                             );
                         })()}
-                    </div>    
-                ): null}
+                    </div>
+                ) : null}
                 {DataStoresVectorPNS.getDataText()?.length ? (
                     <div className="mt-4">
                         <h2>Средние квадратические отклонения:</h2>
@@ -66,7 +67,50 @@ class Statistics extends Component {
                             )
                         })()}
                     </div>
-                ): null}
+                ) : null}
+                {DataStoresVectorPNS.getDataText()?.length ? (
+                    <div className="mt-4">
+                        <h2>Результаты оценивания СКО:</h2>
+                        {(() => {
+                            const stats = EvaluationResultsSCO.calculateStatistics();
+                            return (
+                                <div>
+                                    <h2>Результаты оценивания</h2>
+                                    <table className="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Параметр</th>
+                                                <th scope="col">СКО</th>
+                                                <th scope="col">Корреляция</th>
+                                                <th scope="col">Аномалии</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Широта</td>
+                                                <td>{stats.latitudeStdDev.toFixed(4)}</td>
+                                                <td>{stats.correlationMatrix[0][0].toFixed(4)}</td>
+                                                <td>{stats.anomalyCount}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Долгота</td>
+                                                <td>{stats.longitudeStdDev.toFixed(4)}</td>
+                                                <td>{stats.correlationMatrix[0][1].toFixed(4)}</td>
+                                                <td>{stats.anomalyCount}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Высота</td>
+                                                <td>{stats.heightStdDev.toFixed(4)}</td>
+                                                <td>{stats.correlationMatrix[1][2].toFixed(4)}</td>
+                                                <td>{stats.anomalyCount}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )
+                        })()}
+                    </div>
+                ) : null}
             </div>
         );
     }
