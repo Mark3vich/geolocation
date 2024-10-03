@@ -8,7 +8,7 @@ export interface IDataNMEA_GPGGA {
     position_fix_indicator: number;
     satellites_used: number;
     hdop: number;
-    msl_atlitude: number;
+    altitude: number | null;
     units: string;
     age_of_diff_corr: null;
     diff_ref_station_id: string;

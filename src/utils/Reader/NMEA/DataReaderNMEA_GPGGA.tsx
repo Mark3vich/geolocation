@@ -29,7 +29,7 @@ class DataReaderNMEA_GPGGA {
             dataText.satellites_used = Number(words[7]);
         } 
         dataText.hdop = Number(words[8]); 
-        dataText.msl_atlitude = Number(words[9]);
+        dataText.altitude = Number(words[9]);
         if (words[10].length > 0) {
             dataText.units = words[10];
         } 

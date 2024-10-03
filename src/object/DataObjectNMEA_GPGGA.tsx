@@ -10,7 +10,7 @@ export let dataObjectNMEA_GPGGA: IDataNMEA_GPGGA = {
     position_fix_indicator: 0,
     satellites_used: 0,
     hdop: 0,
-    msl_atlitude: 0,
+    altitude: 0,
     units: '',
     age_of_diff_corr: null,
     diff_ref_station_id: '',

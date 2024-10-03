@@ -34,7 +34,7 @@ class DataStoresNMEA_GPGGA {
     }
 
     @action getAtlitudeDataText(): string[] | undefined {
-        return this.dataText?.map((item) => String(item.msl_atlitude));
+        return this.dataText?.map((item) => String(item.altitude));
     }
 }
 

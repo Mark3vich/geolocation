@@ -40,7 +40,7 @@ class TableNMEA_GPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
                             <td>{dataText.e_w_indicator}</td>
                             <td>{dataText.satellites_used}</td>
                             <td>{dataText.hdop}</td>
-                            <td>{dataText.msl_atlitude}</td>
+                            <td>{dataText.altitude}</td>
                             <td>{dataText.units}</td>
                             <td>{dataText.checksum}</td>
                         </tr>
