@@ -1,16 +1,16 @@
 import { Component } from "react";
 import DataStoresVectorPNS from "../../stores/DataStoresVectorPNS";
 import AverageCoordinatesOfPNS from "../../utils/Math/AverageCoordinatesOfPNS";
+import DeviationsCoordinates from "../../utils/Math/DeviationsCoordinates";
 
 class Statistics extends Component {
 
     render() {
-        console.log(DataStoresVectorPNS.getDataText());
         return ( 
             <div className="container">
                 {DataStoresVectorPNS.getDataText()?.length ? (
                     <div className="mt-4">
-                        <h2>Усреднённые координаты ПНС:</h2>
+                        <h2>Усреднённые координаты ПНС(Приёмником навигационных сигналов):</h2>
                         <div>
                             {(() => {
                                 const averageCoordinates = AverageCoordinatesOfPNS.calculateAverageCoordinates(DataStoresVectorPNS.getDataText());
@@ -25,6 +25,23 @@ class Statistics extends Component {
                         </div>
                     </div>
                 ) : null}
+                {DataStoresVectorPNS.getDataText()?.length ? (
+                    <div className="mt-4">
+                        <h2>Отклонений решений полученных двумя приёмниками навигационных сигналов:</h2>
+                        {(() => {
+                            const devation1 = DataStoresVectorPNS.getVectorPNS()[0];
+                            const devation2 = DataStoresVectorPNS.getVectorPNS()[1];
+                            const devationResult = DeviationsCoordinates.calculateDeviations(devation1, devation2);
+                            return (
+                                <div>
+                                    <p>Разница в широте: <b>{devationResult.latitude}</b></p>
+                                    <p>Разница в долготе: <b>{devationResult.longitude}</b></p>
+                                    <p>Разница в высоте: <b>{devationResult.height}</b></p>
+                                </div>
+                            );
+                        })()}
+                    </div>    
+                ): null}
             </div>
         );
     }
