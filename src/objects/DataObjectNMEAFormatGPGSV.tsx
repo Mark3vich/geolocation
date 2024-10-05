@@ -1,6 +1,6 @@
 import { IDataNMEAFormatGPGSV } from "../interfaces/Datas/IDataNMEAFormatGPGSV";
 
-export let dataObjectNMEA_GPGSV: IDataNMEAFormatGPGSV = {
+export let dataObjectNMEAFormatGPGSV: IDataNMEAFormatGPGSV = {
     message_id: '',
     number_message: '',
     message_number: '',

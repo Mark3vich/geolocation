@@ -1,10 +1,10 @@
 import { IDataNMEAFormatGPGSV } from "../../../interfaces/Datas/IDataNMEAFormatGPGSV";
-import { dataObjectNMEA_GPGSV } from "../../../objects/DataObjectNMEA_GPGSV";
+import { dataObjectNMEAFormatGPGSV } from "../../../objects/DataObjectNMEAFormatGPGSV";
 
 
 class DataReaderNMEA_GPGSV {
     public static convertString(dataTextArrayNMEA: IDataNMEAFormatGPGSV[], words: string[]): void  {
-        let dataText: IDataNMEAFormatGPGSV = {...dataObjectNMEA_GPGSV};
+        let dataText: IDataNMEAFormatGPGSV = {...dataObjectNMEAFormatGPGSV};
         dataText.message_id = words[0];
         dataText.number_message = words[1];
         dataText.message_number = words[2];

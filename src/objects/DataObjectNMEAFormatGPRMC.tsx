@@ -1,6 +1,6 @@
 import { IDataNMEAFormatGPRMC } from "../interfaces/Datas/IDataNMEAFormatGPRMC";
 
-export let dataObjectNMEA_GPRMC: IDataNMEAFormatGPRMC = {
+export let dataObjectNMEAFormatGPRMC: IDataNMEAFormatGPRMC = {
     message_id: '',
     utc_time: '',
     status: '',

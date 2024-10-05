@@ -1,12 +1,12 @@
 import { EAST, NORTH, SOUTH, WEST } from "../../../consts/ConstsApp";
 import { IDataSGKT } from "../../../interfaces/Datas/IDataSGKT";
-import { dataObjectSGK_T } from "../../../objects/DataObjectSGK_T";
+import { dataObjectSGKT } from "../../../objects/DataObjectSGKT";
 import ConvertDataSGK_T from "./ConvertDataSGK_T";
 
 class DataReaderSGK_T {    
     public static convertString(dataTextArray: IDataSGKT[], words: string[]): void {
-        dataObjectSGK_T.report = words[0];
-        let dataText: IDataSGKT = { ...dataObjectSGK_T };
+        dataObjectSGKT.report = words[0];
+        let dataText: IDataSGKT = { ...dataObjectSGKT };
         
         if (ConvertDataSGK_T.checkingForTheNumberOfDigits(words[1], 4)) {
             dataText.device_id = words[1];

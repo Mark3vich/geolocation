@@ -1,6 +1,6 @@
 import { IDataSGKT } from "../interfaces/Datas/IDataSGKT";
 
-export let dataObjectSGK_T: IDataSGKT = {
+export let dataObjectSGKT: IDataSGKT = {
     report: '',
     device_id: '',
     date: '',

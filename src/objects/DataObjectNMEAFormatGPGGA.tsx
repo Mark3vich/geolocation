@@ -1,6 +1,6 @@
 import { IDataNMEAFormatGPGGA } from "../interfaces/Datas/IDataNMEAFormatGPGGA";
 
-export let dataObjectNMEA_GPGGA: IDataNMEAFormatGPGGA = {
+export let dataObjectNMEAFormatGPGGA: IDataNMEAFormatGPGGA = {
     message_id: '',
     utc_time: '',
     latitude: '',
