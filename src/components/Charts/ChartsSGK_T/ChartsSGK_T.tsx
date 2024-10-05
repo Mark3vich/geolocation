@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Line } from "react-chartjs-2";
-import ConvertDataSGK_T from "../../../utils/Reader/SGK_T/ConvertDataSGK_T";
+import ConvertDataSGKT from "../../../utils/Reader/SGK_T/ConvertDataSGKT";
 import DataStoresSGK_T from "../../../stores/DataStoresSGKT";
 
 class ChartsSGK_T extends Component {
@@ -19,14 +19,14 @@ class ChartsSGK_T extends Component {
         ],
     };
     private coordinates = {
-        labels: ConvertDataSGK_T.convertToCoordinatesString(DataStoresSGK_T.getLatitudeDataText()),
+        labels: ConvertDataSGKT.convertToCoordinatesString(DataStoresSGK_T.getLatitudeDataText()),
         datasets: [
             {
                 label: 'Latitude/Longitude',
                 backgroundColor: 'rgba(255, 165, 0, 1)',
                 borderColor: 'rgba(255, 165, 0, 1)',
                 borderWidth: 1,
-                data: ConvertDataSGK_T.convertToCoordinatesString(DataStoresSGK_T.getLongitudeDataText()),
+                data: ConvertDataSGKT.convertToCoordinatesString(DataStoresSGK_T.getLongitudeDataText()),
                 pointBackgroundColor: 'orange',
                 pointBorderColor: 'orange',
                 tension: 0.3,

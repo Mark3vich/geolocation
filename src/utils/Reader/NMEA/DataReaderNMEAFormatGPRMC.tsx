@@ -3,7 +3,7 @@ import { IDataNMEAFormatGPRMC } from "../../../interfaces/Datas/IDataNMEAFormatG
 import { dataObjectNMEAFormatGPRMC } from "../../../objects/DataObjectNMEAFormatGPRMC";
 import ConvertDataNMEA from "./ConvertDataNMEA";
 
-class DataReaderNMEA_GPRMC {
+class DataReaderNMEAFormatGPRMC {
     public static convertString(dataTextArray: IDataNMEAFormatGPRMC[], words: string[]): void {
         let dataText: IDataNMEAFormatGPRMC = { ...dataObjectNMEAFormatGPRMC };
         dataText.message_id = words[0];
@@ -39,4 +39,4 @@ class DataReaderNMEA_GPRMC {
     }
 }
 
-export default DataReaderNMEA_GPRMC;
+export default DataReaderNMEAFormatGPRMC;

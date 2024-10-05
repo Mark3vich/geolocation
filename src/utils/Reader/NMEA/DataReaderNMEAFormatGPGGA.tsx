@@ -3,7 +3,7 @@ import { IDataNMEAFormatGPGGA } from "../../../interfaces/Datas/IDataNMEAFormatG
 import { dataObjectNMEAFormatGPGGA } from "../../../objects/DataObjectNMEAFormatGPGGA";
 import ConvertDataNMEA from "./ConvertDataNMEA";
 
-class DataReaderNMEA_GPGGA {
+class DataReaderNMEAFormatGPGGA {
     public static convertString(dataTextArrayNMEA: IDataNMEAFormatGPGGA[], words: string[]): void  {
         let dataText: IDataNMEAFormatGPGGA = {...dataObjectNMEAFormatGPGGA};
         dataText.message_id = words[0];
@@ -46,4 +46,4 @@ class DataReaderNMEA_GPGGA {
     }
 }
 
-export default DataReaderNMEA_GPGGA;
+export default DataReaderNMEAFormatGPGGA;

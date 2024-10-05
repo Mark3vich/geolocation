@@ -5,7 +5,7 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import DataStoresSGKT from '../../stores/DataStoresSGKT';
-import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
+import ConvertDataSGKT from '../../utils/Reader/SGK_T/ConvertDataSGKT';
 import { IDataSGKT } from '../../interfaces/Datas/IDataSGKT';
 import { ICoordinates } from '../../interfaces/Structures/ICoordinates';
 
@@ -29,8 +29,8 @@ class Map extends Component {
 
         if (dataText) {
             const coordinates: ICoordinates[] = dataText.map(item => ({
-                latitude: ConvertDataSGK_T.convertToCoordinateString(item.latitude),
-                longitude: ConvertDataSGK_T.convertToCoordinateString(item.longitude),
+                latitude: ConvertDataSGKT.convertToCoordinateString(item.latitude),
+                longitude: ConvertDataSGKT.convertToCoordinateString(item.longitude),
                 device_id: item.device_id
             }));
             this.setState({ coordinates });

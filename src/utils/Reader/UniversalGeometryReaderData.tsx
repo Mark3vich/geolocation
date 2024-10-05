@@ -1,13 +1,13 @@
 import { IDataAll } from "../../interfaces/Datas/IDataAll";
 import { IDataSGKT } from "../../interfaces/Datas/IDataSGKT";
-import DataReaderSGK_T from "./SGK_T/DataReaderSGK_T";
+import DataReaderSGKT from "./SGK_T/DataReaderSGKT";
 import { MESSAGE_ID, REPORT } from "../../consts/ConstsApp";
 import { IDataNMEAFormatGPGGA } from "../../interfaces/Datas/IDataNMEAFormatGPGGA";
 import { IDataNMEAFormatGPGSV } from "../../interfaces/Datas/IDataNMEAFormatGPGSV";
 import { IDataNMEAFormatGPRMC } from "../../interfaces/Datas/IDataNMEAFormatGPRMC";
-import DataReaderNMEA_GPGGA from "./NMEA/DataReaderNMEA_GPGGA";
-import DataReaderNMEA_GPGSV from "./NMEA/DataReaderNMEA_GPGSV";
-import DataReaderNMEA_GPRMC from "./NMEA/DataReaderNMEA_GPRMC";
+import DataReaderNMEAFormatGPGGA from "./NMEA/DataReaderNMEAFormatGPGGA";
+import DataReaderNMEAFormatGPGSV from "./NMEA/DataReaderNMEAFormatGPGSV";
+import DataReaderNMEAFormatGPRMC from "./NMEA/DataReaderNMEAFormatGPRMC";
 
 class UniversalGeometryReaderData {
     private fileContent: string;
@@ -26,13 +26,13 @@ class UniversalGeometryReaderData {
 
         for (let i = 0; i < words.length; i++) {
             if (words[i][0] === REPORT) {
-                DataReaderSGK_T.convertString(dataTextArraySGK_T, words[i]);
+                DataReaderSGKT.convertString(dataTextArraySGK_T, words[i]);
             } else if (words[i][0] === MESSAGE_ID[0]) {
-                DataReaderNMEA_GPGGA.convertString(dataTextArrayNMEA_GPGGA, words[i]);
+                DataReaderNMEAFormatGPGGA.convertString(dataTextArrayNMEA_GPGGA, words[i]);
             } else if (words[i][0] === MESSAGE_ID[1]) {
-                DataReaderNMEA_GPRMC.convertString(dataTextArrayNMEA_GPRMC, words[i]);
+                DataReaderNMEAFormatGPRMC.convertString(dataTextArrayNMEA_GPRMC, words[i]);
             } else if(words[i][0] === MESSAGE_ID[2]) {
-                DataReaderNMEA_GPGSV.convertString(dataTextArrayNMEA_GPGSV, words[i]);
+                DataReaderNMEAFormatGPGSV.convertString(dataTextArrayNMEA_GPGSV, words[i]);
             }
         }
 

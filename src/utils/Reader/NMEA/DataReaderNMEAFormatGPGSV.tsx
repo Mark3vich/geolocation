@@ -2,7 +2,7 @@ import { IDataNMEAFormatGPGSV } from "../../../interfaces/Datas/IDataNMEAFormatG
 import { dataObjectNMEAFormatGPGSV } from "../../../objects/DataObjectNMEAFormatGPGSV";
 
 
-class DataReaderNMEA_GPGSV {
+class DataReaderNMEAFormatGPGSV {
     public static convertString(dataTextArrayNMEA: IDataNMEAFormatGPGSV[], words: string[]): void  {
         let dataText: IDataNMEAFormatGPGSV = {...dataObjectNMEAFormatGPGSV};
         dataText.message_id = words[0];
@@ -18,4 +18,4 @@ class DataReaderNMEA_GPGSV {
     }
 }
 
-export default DataReaderNMEA_GPGSV;
+export default DataReaderNMEAFormatGPGSV;
