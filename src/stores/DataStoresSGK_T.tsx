@@ -1,5 +1,5 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataSGKT } from "../interfaces/IDataSGKT";
+import { IDataSGKT } from "../interfaces/Datas/IDataSGKT";
 
 class DataStoresSGK_T {
     @observable dataText: IDataSGKT[] | null = [];

@@ -1,4 +1,4 @@
-import { IDataSGKT } from "../interfaces/IDataSGKT";
+import { IDataSGKT } from "../interfaces/Datas/IDataSGKT";
 
 export let dataObjectSGK_T: IDataSGKT = {
     report: '',

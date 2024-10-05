@@ -1,11 +1,12 @@
 import { Component } from "react";
-import { IDataNMEAFormatGPGGA } from "../../interfaces/IDataNMEAFormatGPGGA";
 import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
+import { IDataNMEAFormatGPRMC } from "../../interfaces/Datas/IDataNMEAFormatGPRMC";
 
 
-class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEAFormatGPGGA[] }> {
+class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEAFormatGPRMC[] }> {
     render() {
         const { dataText } = this.props;
+        ConvertDataNMEA.convertCoordinate(dataText[0].latitude);
         return (
             <table className="container table table-striped">
                 <thead>
@@ -13,31 +14,31 @@ class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEAFormatGPGGA[] 
                         <th scope="col">№</th>
                         <th scope="col">MESSAGE_ID</th>
                         <th scope="col">UTC_TIME</th>
+                        <th scope="col">STATUS</th>
                         <th scope="col">LATITUDE</th>
                         <th scope="col">N/S</th>
                         <th scope="col">LONGITUDE</th>
                         <th scope="col">E/W</th>
-                        <th scope="col">USED</th>
-                        <th scope="col">HDOP</th>
-                        <th scope="col">ATLITUDE</th>
-                        <th scope="col">UNITS</th>
+                        <th scope="col">SPEED</th>
+                        <th scope="col">DATA</th>
+                        <th scope="col">MAGNETIC</th>
                         <th scope="col">CHECKSUM</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {dataText.map((dataText: IDataNMEAFormatGPGGA, index) => (
+                    {dataText.map((dataText: IDataNMEAFormatGPRMC, index) => (
                         <tr key={index}>
                             <th scope="row">{index + 1}</th>
                             <td>{dataText.message_id}</td>
                             <td>{dataText.utc_time}</td>
+                            <td>{dataText.status}</td>
                             <td>{ConvertDataNMEA.convertCoordinate(dataText.latitude)}</td>
                             <td>{dataText.n_s_indicator}</td>
                             <td>{ConvertDataNMEA.convertCoordinate(dataText.longitude)}</td>
                             <td>{dataText.e_w_indicator}</td>
-                            <td>{dataText.satellites_used}</td>
-                            <td>{dataText.hdop}</td>
-                            <td>{dataText.altitude}</td>
-                            <td>{dataText.units}</td>
+                            <td>{dataText.speed_over_group}</td>
+                            <td>{dataText.data}</td>
+                            <td>{dataText.magnetic_variation}</td>
                             <td>{dataText.checksum}</td>
                         </tr>
                     ))}
@@ -47,4 +48,4 @@ class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEAFormatGPGGA[] 
     }
 }
 
-export default TableNMEAFormatGPGGA;
+export default TableNMEAFormatGPRMC;

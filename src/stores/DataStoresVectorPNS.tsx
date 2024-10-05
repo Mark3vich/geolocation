@@ -1,8 +1,8 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEAFormatCoordinates } from "../interfaces/IDataNMEAFormatCoordinates";
-import { IDataNMEAFormatGPGGA } from "../interfaces/IDataNMEAFormatGPGGA";
-import { IDataSGKT } from "../interfaces/IDataSGKT";
-import { IVectorPNS } from "../interfaces/IVectorPNS";
+import { IDataNMEAFormatCoordinates } from "../interfaces/Datas/IDataNMEAFormatCoordinates";
+import { IDataNMEAFormatGPGGA } from "../interfaces/Datas/IDataNMEAFormatGPGGA";
+import { IDataSGKT } from "../interfaces/Datas/IDataSGKT";
+import { IVectorPNS } from "../interfaces/Structures/IVectorPNS";
 
 class DataStoresVectorPNS {
     @observable dataText: IDataNMEAFormatCoordinates<IDataNMEAFormatGPGGA | IDataSGKT>[] = [];

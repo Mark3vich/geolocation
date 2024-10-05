@@ -6,8 +6,8 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import DataTextStore from '../../stores/DataStoresSGK_T';
 import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
-import { IDataSGKT } from '../../interfaces/IDataSGKT';
-import { ICoordinates } from '../../interfaces/ICoordinates';
+import { IDataSGKT } from '../../interfaces/Datas/IDataSGKT';
+import { ICoordinates } from '../../interfaces/Structures/ICoordinates';
 
 L.Icon.Default.mergeOptions({
     iconRetinaUrl,

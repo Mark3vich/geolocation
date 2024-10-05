@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 
 import { observer } from 'mobx-react';
 
-import TableSGKT from '../Table/TableSGKT';
-import { IDataAll } from '../../interfaces/IDataAll';
-import TableNMEAFormatGPGGA from '../Table/TableNMEAFormatGPGGA';
-import TableNMEAFormatGPRMC from '../Table/TableNMEAFormatGPRMC';
-import { IMainState } from '../../interfaces/IMainState';
+import TableSGKT from '../Tables/TableSGKT';
+import { IDataAll } from '../../interfaces/Datas/IDataAll';
+import TableNMEAFormatGPGGA from '../Tables/TableNMEAFormatGPGGA';
+import TableNMEAFormatGPRMC from '../Tables/TableNMEAFormatGPRMC';
+import { IMainState } from '../../interfaces/Components/IMainState';
 import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
 import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
 import DataStoresNMEA_GPGSV from '../../stores/DataStoresNMEA_GPGSV';
 import UniversalGeometryReaderData from '../../utils/Reader/UniversalGeometryReaderData';
 import DataStoresVectorPNS from '../../stores/DataStoresVectorPNS';
-import TableNMEAFormatGPGSV from '../Table/TableNMEAFormatGPGSV';
+import TableNMEAFormatGPGSV from '../Tables/TableNMEAFormatGPGSV';
 
 @observer
 class Main extends Component<{}, IMainState> {

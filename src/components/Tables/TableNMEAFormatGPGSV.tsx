@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { IDataNMEAFormatGPGSV } from "../../interfaces/IDataNMEAFormatGPGSV";
+import { IDataNMEAFormatGPGSV } from "../../interfaces/Datas/IDataNMEAFormatGPGSV";
 
 class TableNMEAFormatGPGSV extends Component<{ dataText: IDataNMEAFormatGPGSV[] }> {
     render() {

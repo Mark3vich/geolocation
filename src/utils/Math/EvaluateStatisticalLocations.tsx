@@ -1,6 +1,6 @@
-import { IStatisticalCharacteristics } from "../../interfaces/IStatisticalCharacteristics";
-import { IVectorPNS } from "../../interfaces/IVectorPNS";
-import { dataObjectEvaluateStatisticalLocations } from "../../object/DataObjectEvaluateStatisticalLocations";
+import { IStatisticalCharacteristics } from "../../interfaces/Components/IStatisticalCharacteristics";
+import { IVectorPNS } from "../../interfaces/Structures/IVectorPNS";
+import { dataObjectEvaluateStatisticalLocations } from "../../objects/DataObjectEvaluateStatisticalLocations";
 
 class EvaluateStatisticalLocations {
     public static calculateStatisticalCharacteristics(coordinatesList: IVectorPNS[]): IStatisticalCharacteristics {

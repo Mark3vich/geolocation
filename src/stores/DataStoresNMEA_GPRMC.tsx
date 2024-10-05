@@ -1,5 +1,5 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEAFormatGPRMC } from "../interfaces/IDataNMEAFormatGPRMC";
+import { IDataNMEAFormatGPRMC } from "../interfaces/Datas/IDataNMEAFormatGPRMC";
 
 class DataStoresNMEA_GPRMC {
     @observable dataText: IDataNMEAFormatGPRMC[] | null = [];

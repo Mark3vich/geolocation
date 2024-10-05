@@ -2,7 +2,7 @@ import { Component } from "react";
 import DataStoresVectorPNS from "../../../stores/DataStoresVectorPNS";
 import AverageCoordinatesOfPNS from "../../../utils/Math/AverageCoordinatesOfPNS";
 import { Line, Scatter } from "react-chartjs-2";
-import { IDeviation } from "../../../interfaces/IDeviation";
+import { IDeviation } from "../../../interfaces/Components/IDeviation";
 
 class ScatterPlotRelativeToAverage extends Component {
     private calculateDeviationFromAverage(): IDeviation[] {

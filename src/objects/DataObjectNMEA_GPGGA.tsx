@@ -1,4 +1,4 @@
-import { IDataNMEAFormatGPGGA } from "../interfaces/IDataNMEAFormatGPGGA";
+import { IDataNMEAFormatGPGGA } from "../interfaces/Datas/IDataNMEAFormatGPGGA";
 
 export let dataObjectNMEA_GPGGA: IDataNMEAFormatGPGGA = {
     message_id: '',

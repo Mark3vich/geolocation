@@ -1,5 +1,5 @@
-import { IDataNMEAFormatGPGSV } from "../../../interfaces/IDataNMEAFormatGPGSV";
-import { dataObjectNMEA_GPGSV } from "../../../object/DataObjectNMEA_GPGSV";
+import { IDataNMEAFormatGPGSV } from "../../../interfaces/Datas/IDataNMEAFormatGPGSV";
+import { dataObjectNMEA_GPGSV } from "../../../objects/DataObjectNMEA_GPGSV";
 
 
 class DataReaderNMEA_GPGSV {

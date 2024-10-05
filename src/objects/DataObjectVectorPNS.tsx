@@ -1,4 +1,4 @@
-import { IVectorPNS } from "../interfaces/IVectorPNS";
+import { IVectorPNS } from "../interfaces/Structures/IVectorPNS";
 
 export let dataObjectVectorPNS: IVectorPNS = {
     latitude: 0,

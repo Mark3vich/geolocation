@@ -1,5 +1,5 @@
-import { IDataNMEAFormatGPGGA } from "../../../interfaces/IDataNMEAFormatGPGGA";
-import { IDataNMEAFormatGPRMC } from "../../../interfaces/IDataNMEAFormatGPRMC";
+import { IDataNMEAFormatGPGGA } from "../../../interfaces/Datas/IDataNMEAFormatGPGGA";
+import { IDataNMEAFormatGPRMC } from "../../../interfaces/Datas/IDataNMEAFormatGPRMC";
 import AbstractConvertAll from "../AbstractConvertAll";
 
 class ConvertDataNMEA extends AbstractConvertAll {

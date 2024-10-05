@@ -1,5 +1,5 @@
-import { IVectorPNS } from "../../interfaces/IVectorPNS";
-import { dataObjectVectorPNS } from "../../object/DataObjectVectorPNS";
+import { IVectorPNS } from "../../interfaces/Structures/IVectorPNS";
+import { dataObjectVectorPNS } from "../../objects/DataObjectVectorPNS";
 
 class DeviationsCoordinates {
     public static calculateDeviations(receiver1: IVectorPNS, receiver2: IVectorPNS): IVectorPNS {

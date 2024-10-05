@@ -1,5 +1,5 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEAFormatGPGGA } from "../interfaces/IDataNMEAFormatGPGGA";
+import { IDataNMEAFormatGPGGA } from "../interfaces/Datas/IDataNMEAFormatGPGGA";
 
 
 class DataStoresNMEA_GPGGA {

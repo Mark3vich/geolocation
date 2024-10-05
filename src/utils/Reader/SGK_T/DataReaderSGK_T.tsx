@@ -1,6 +1,6 @@
 import { EAST, NORTH, SOUTH, WEST } from "../../../consts/ConstsApp";
-import { IDataSGKT } from "../../../interfaces/IDataSGKT";
-import { dataObjectSGK_T } from "../../../object/DataObjectSGK_T";
+import { IDataSGKT } from "../../../interfaces/Datas/IDataSGKT";
+import { dataObjectSGK_T } from "../../../objects/DataObjectSGK_T";
 import ConvertDataSGK_T from "./ConvertDataSGK_T";
 
 class DataReaderSGK_T {    
