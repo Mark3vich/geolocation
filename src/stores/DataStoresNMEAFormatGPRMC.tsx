@@ -1,7 +1,7 @@
 import { makeAutoObservable, observable, action } from "mobx";
 import { IDataNMEAFormatGPRMC } from "../interfaces/Datas/IDataNMEAFormatGPRMC";
 
-class DataStoresNMEA_GPRMC {
+class DataStoresNMEAFormatGPRMC {
     @observable dataText: IDataNMEAFormatGPRMC[] | null = [];
 
     constructor() {
@@ -17,4 +17,4 @@ class DataStoresNMEA_GPRMC {
     }
 }
 
-export default new DataStoresNMEA_GPRMC();
+export default new DataStoresNMEAFormatGPRMC();

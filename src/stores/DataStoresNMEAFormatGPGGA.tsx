@@ -2,7 +2,7 @@ import { makeAutoObservable, observable, action } from "mobx";
 import { IDataNMEAFormatGPGGA } from "../interfaces/Datas/IDataNMEAFormatGPGGA";
 
 
-class DataStoresNMEA_GPGGA {
+class DataStoresNMEAFormatGPGGA {
     @observable dataText: IDataNMEAFormatGPGGA[] | null = [];
 
     constructor() {
@@ -38,4 +38,4 @@ class DataStoresNMEA_GPGGA {
     }
 }
 
-export default new DataStoresNMEA_GPGGA();
+export default new DataStoresNMEAFormatGPGGA();

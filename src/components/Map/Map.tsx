@@ -4,7 +4,7 @@ import L from 'leaflet';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-import DataTextStore from '../../stores/DataStoresSGK_T';
+import DataStoresSGKT from '../../stores/DataStoresSGKT';
 import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
 import { IDataSGKT } from '../../interfaces/Datas/IDataSGKT';
 import { ICoordinates } from '../../interfaces/Structures/ICoordinates';
@@ -25,7 +25,7 @@ class Map extends Component {
     }
 
     fetchData = () => {
-        const dataText: IDataSGKT[] | null = DataTextStore.getDataText();
+        const dataText: IDataSGKT[] | null = DataStoresSGKT.getDataText();
 
         if (dataText) {
             const coordinates: ICoordinates[] = dataText.map(item => ({

@@ -1,7 +1,7 @@
 import { makeAutoObservable, observable, action } from "mobx";
 import { IDataSGKT } from "../interfaces/Datas/IDataSGKT";
 
-class DataStoresSGK_T {
+class DataStoresSGKT {
     @observable dataText: IDataSGKT[] | null = [];
     constructor() {
         makeAutoObservable(this);
@@ -32,4 +32,4 @@ class DataStoresSGK_T {
     }
 };
 
-export default new DataStoresSGK_T();
+export default new DataStoresSGKT();

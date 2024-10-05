@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, PointElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
-import DataStoresNMEA_GPGGA from '../../../stores/DataStoresNMEA_GPGGA';
+import DataStoresNMEA_GPGGA from '../../../stores/DataStoresNMEAFormatGPGGA';
 import { IDataNMEAFormatGPGGA } from '../../../interfaces/Datas/IDataNMEAFormatGPGGA';
 import ConvertDataNMEA from '../../../utils/Reader/NMEA/ConvertDataNMEA';
 import { IPoint } from '../../../interfaces/Structures/IPoint';

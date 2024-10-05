@@ -7,10 +7,10 @@ import { IDataAll } from '../../interfaces/Datas/IDataAll';
 import TableNMEAFormatGPGGA from '../Tables/TableNMEAFormatGPGGA';
 import TableNMEAFormatGPRMC from '../Tables/TableNMEAFormatGPRMC';
 import { IMainState } from '../../interfaces/Components/IMainState';
-import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
-import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
-import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
-import DataStoresNMEA_GPGSV from '../../stores/DataStoresNMEA_GPGSV';
+import DataStoresSGK_T from '../../stores/DataStoresSGKT';
+import DataStoresNMEAFormatGPGGA from '../../stores/DataStoresNMEAFormatGPGGA';
+import DataStoresNMEAFormatGPRMC from '../../stores/DataStoresNMEAFormatGPRMC';
+import DataStoresNMEAFormatGPGSV from '../../stores/DataStoresNMEAFormatGPGSV';
 import UniversalGeometryReaderData from '../../utils/Reader/UniversalGeometryReaderData';
 import DataStoresVectorPNS from '../../stores/DataStoresVectorPNS';
 import TableNMEAFormatGPGSV from '../Tables/TableNMEAFormatGPGSV';
@@ -40,19 +40,19 @@ class Main extends Component<{}, IMainState> {
             DataStoresSGK_T.setDataText(dataText.dataSGK_T);
           }
           if (dataText.dataNMEA_GPGGA?.length > 0) {
-            DataStoresNMEA_GPGGA.setDataText(dataText.dataNMEA_GPGGA);
+            DataStoresNMEAFormatGPGGA.setDataText(dataText.dataNMEA_GPGGA);
           }
           if (dataText.dataNMEA_GPRMC?.length > 0) {
-            DataStoresNMEA_GPRMC.setDataText(dataText.dataNMEA_GPRMC);
+            DataStoresNMEAFormatGPRMC.setDataText(dataText.dataNMEA_GPRMC);
           }
           if (dataText.dataNMEA_GPGSV?.length > 0) {
-            DataStoresNMEA_GPGSV.setDataText(dataText.dataNMEA_GPGSV);
+            DataStoresNMEAFormatGPGSV.setDataText(dataText.dataNMEA_GPGSV);
           }
         }
 
         // Установка состояний для математических вычислений
         let dataSGK_T = DataStoresSGK_T.getDataText() ?? [];
-        let dataNMEA_GPGGA = DataStoresNMEA_GPGGA.getDataText() ?? [];
+        let dataNMEA_GPGGA = DataStoresNMEAFormatGPGGA.getDataText() ?? [];
         if (dataSGK_T.length > 0) {
           DataStoresVectorPNS.setDataText(dataSGK_T);
         }
@@ -88,22 +88,22 @@ class Main extends Component<{}, IMainState> {
                 <TableSGKT dataText={DataStoresSGK_T.getDataText() ?? []} />
               </div>
             ) : null}
-            {DataStoresNMEA_GPGGA.getDataText()?.length ? (
+            {DataStoresNMEAFormatGPGGA.getDataText()?.length ? (
               <div className="mt-4">
                 <h3>File Content NMEA GPGGA:</h3>
-                <TableNMEAFormatGPGGA dataText={DataStoresNMEA_GPGGA.getDataText() ?? []} />
+                <TableNMEAFormatGPGGA dataText={DataStoresNMEAFormatGPGGA.getDataText() ?? []} />
               </div>
             ) : null}
-            {DataStoresNMEA_GPRMC.getDataText()?.length ? (
+            {DataStoresNMEAFormatGPRMC.getDataText()?.length ? (
               <div className="mt-4">
                 <h3>File Content NMEA GPRMC:</h3>
-                <TableNMEAFormatGPRMC dataText={DataStoresNMEA_GPRMC.getDataText() ?? []} />
+                <TableNMEAFormatGPRMC dataText={DataStoresNMEAFormatGPRMC.getDataText() ?? []} />
               </div>
             ) : null}
-            {DataStoresNMEA_GPGSV.getDataText()?.length ? (
+            {DataStoresNMEAFormatGPGSV.getDataText()?.length ? (
               <div className="mt-4">
                 <h3>File Content NMEA GPGSV:</h3>
-                <TableNMEAFormatGPGSV dataText={DataStoresNMEA_GPGSV.getDataText() ?? []} />
+                <TableNMEAFormatGPGSV dataText={DataStoresNMEAFormatGPGSV.getDataText() ?? []} />
               </div>
             ) : null}
           </div>

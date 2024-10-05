@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { PolarArea } from 'react-chartjs-2';
 import ConvertDataNMEA from "../../../utils/Reader/NMEA/ConvertDataNMEA";
-import DataStoresNMEA_GPGSV from "../../../stores/DataStoresNMEA_GPGSV";
+import DataStoresNMEA_GPGSV from "../../../stores/DataStoresNMEAFormatGPGSV";
 import { ISkyPlotState } from "../../../interfaces/Components/ISkyPlotState";
 
 class SkyPlot extends Component<{}, ISkyPlotState> {
