@@ -1,4 +1,4 @@
-import { IStatisticalCharacteristics } from "../interface/IStatisticalCharacteristics";
+import { IStatisticalCharacteristics } from "../interfaces/IStatisticalCharacteristics";
 
 export let dataObjectEvaluateStatisticalLocations: IStatisticalCharacteristics = {
     averageLatitude: 0,

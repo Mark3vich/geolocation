@@ -1,4 +1,4 @@
-import { IVectorPNS } from "../../interface/IVectorPNS";
+import { IVectorPNS } from "../../interfaces/IVectorPNS";
 import { dataObjectVectorPNS } from "../../object/DataObjectVectorPNS";
 
 class DeviationsCoordinates {

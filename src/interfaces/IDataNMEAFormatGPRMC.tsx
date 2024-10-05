@@ -1,4 +1,4 @@
-export interface IDataNMEA_GPRMC {
+export interface IDataNMEAFormatGPRMC {
     message_id: string;
     utc_time: string;
     status: string;

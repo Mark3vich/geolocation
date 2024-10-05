@@ -1,5 +1,5 @@
-import { IDataNMEA_GPGGA } from "../../../interface/IDataNMEA_GPGGA";
-import { IDataNMEA_GPRMC } from "../../../interface/IDataNMEA_GPRMC";
+import { IDataNMEAFormatGPGGA } from "../../../interfaces/IDataNMEAFormatGPGGA";
+import { IDataNMEAFormatGPRMC } from "../../../interfaces/IDataNMEAFormatGPRMC";
 import AbstractConvertAll from "../AbstractConvertAll";
 
 class ConvertDataNMEA extends AbstractConvertAll {
@@ -12,11 +12,11 @@ class ConvertDataNMEA extends AbstractConvertAll {
         return positionFixIndicatorNumber >= from && positionFixIndicatorNumber <= to;
     }
 
-    public static isNMEAFormatGPGGA(data: any): data is IDataNMEA_GPGGA[] {
+    public static isNMEAFormatGPGGA(data: any): data is IDataNMEAFormatGPGGA[] {
         return Array.isArray(data) && data.length > 0 && 'message_id' in data[0] && 'msl_atlitude' in data[0]; 
     }
 
-    public static isNMEAFormatGPRMC(data: any): data is IDataNMEA_GPRMC[] {
+    public static isNMEAFormatGPRMC(data: any): data is IDataNMEAFormatGPRMC[] {
         return Array.isArray(data) && data.length > 0 && 'message_id' in data[0] && 'speed_over_group' in data[0]; 
     }
 }

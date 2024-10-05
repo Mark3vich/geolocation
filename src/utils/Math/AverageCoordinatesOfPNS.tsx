@@ -1,12 +1,12 @@
-import { IDataNMEA_Coordinates } from "../../interface/IDataNMEA_Coordinates";
-import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
-import { IDataSGK_T } from "../../interface/IDataSGK_T";
-import { IVectorPNS } from "../../interface/IVectorPNS";
+import { IDataNMEAFormatCoordinates } from "../../interfaces/IDataNMEAFormatCoordinates";
+import { IDataNMEAFormatGPGGA } from "../../interfaces/IDataNMEAFormatGPGGA";
+import { IDataSGKT } from "../../interfaces/IDataSGKT";
+import { IVectorPNS } from "../../interfaces/IVectorPNS";
 import { dataObjectVectorPNS } from "../../object/DataObjectVectorPNS";
 
 
 class AverageCoordinatesOfPNS {
-    public static calculateAverageCoordinates(data: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[]): IVectorPNS {
+    public static calculateAverageCoordinates(data: IDataNMEAFormatCoordinates<IDataNMEAFormatGPGGA | IDataSGKT>[]): IVectorPNS {
         let dataPNS: IVectorPNS = {...dataObjectVectorPNS};
         if (data.length === 0) {
             return dataPNS;

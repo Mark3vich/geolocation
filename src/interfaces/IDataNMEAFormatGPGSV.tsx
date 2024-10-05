@@ -1,4 +1,4 @@
-export interface IDataNMEA_GPGSV {
+export interface IDataNMEAFormatGPGSV {
     message_id: string;
     number_message: string;
     message_number: string;

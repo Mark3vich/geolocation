@@ -6,8 +6,8 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import DataTextStore from '../../stores/DataStoresSGK_T';
 import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
-import { IDataSGK_T } from '../../interface/IDataSGK_T';
-import { ICoordinates } from '../../interface/ICoordinates';
+import { IDataSGKT } from '../../interfaces/IDataSGKT';
+import { ICoordinates } from '../../interfaces/ICoordinates';
 
 L.Icon.Default.mergeOptions({
     iconRetinaUrl,
@@ -25,7 +25,7 @@ class Map extends Component {
     }
 
     fetchData = () => {
-        const dataText: IDataSGK_T[] | null = DataTextStore.getDataText();
+        const dataText: IDataSGKT[] | null = DataTextStore.getDataText();
 
         if (dataText) {
             const coordinates: ICoordinates[] = dataText.map(item => ({

@@ -1,9 +1,9 @@
 import { Component } from "react";
-import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
+import { IDataNMEAFormatGPGGA } from "../../interfaces/IDataNMEAFormatGPGGA";
 import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 
 
-class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
+class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEAFormatGPGGA[] }> {
     render() {
         const { dataText } = this.props;
         return (
@@ -25,7 +25,7 @@ class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataText.map((dataText: IDataNMEA_GPGGA, index) => (
+                    {dataText.map((dataText: IDataNMEAFormatGPGGA, index) => (
                         <tr key={index}>
                             <th scope="row">{index + 1}</th>
                             <td>{dataText.message_id}</td>

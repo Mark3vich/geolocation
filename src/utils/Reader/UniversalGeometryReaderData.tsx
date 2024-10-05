@@ -1,10 +1,10 @@
-import { IDataAll } from "../../interface/IDataAll";
-import { IDataSGK_T } from "../../interface/IDataSGK_T";
+import { IDataAll } from "../../interfaces/IDataAll";
+import { IDataSGKT } from "../../interfaces/IDataSGKT";
 import DataReaderSGK_T from "./SGK_T/DataReaderSGK_T";
 import { MESSAGE_ID, REPORT } from "../../consts/ConstsApp";
-import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
-import { IDataNMEA_GPGSV } from "../../interface/IDataNMEA_GPGSV";
-import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
+import { IDataNMEAFormatGPGGA } from "../../interfaces/IDataNMEAFormatGPGGA";
+import { IDataNMEAFormatGPGSV } from "../../interfaces/IDataNMEAFormatGPGSV";
+import { IDataNMEAFormatGPRMC } from "../../interfaces/IDataNMEAFormatGPRMC";
 import DataReaderNMEA_GPGGA from "./NMEA/DataReaderNMEA_GPGGA";
 import DataReaderNMEA_GPGSV from "./NMEA/DataReaderNMEA_GPGSV";
 import DataReaderNMEA_GPRMC from "./NMEA/DataReaderNMEA_GPRMC";
@@ -19,10 +19,10 @@ class UniversalGeometryReaderData {
         const lines: string[] = this.fileContent.split('\n').map(line => line.trim());
         const words: string[][] = lines.map(line => line.split(',').map(word => word.trim()));
 
-        let dataTextArraySGK_T: IDataSGK_T[] = [];
-        let dataTextArrayNMEA_GPGGA: IDataNMEA_GPGGA[] = [];
-        let dataTextArrayNMEA_GPRMC: IDataNMEA_GPRMC[] = [];
-        let dataTextArrayNMEA_GPGSV: IDataNMEA_GPGSV[] = [];
+        let dataTextArraySGK_T: IDataSGKT[] = [];
+        let dataTextArrayNMEA_GPGGA: IDataNMEAFormatGPGGA[] = [];
+        let dataTextArrayNMEA_GPRMC: IDataNMEAFormatGPRMC[] = [];
+        let dataTextArrayNMEA_GPGSV: IDataNMEAFormatGPGSV[] = [];
 
         for (let i = 0; i < words.length; i++) {
             if (words[i][0] === REPORT) {

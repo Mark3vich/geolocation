@@ -1,5 +1,5 @@
-import { IStatisticalCharacteristics } from "../../interface/IStatisticalCharacteristics";
-import { IVectorPNS } from "../../interface/IVectorPNS";
+import { IStatisticalCharacteristics } from "../../interfaces/IStatisticalCharacteristics";
+import { IVectorPNS } from "../../interfaces/IVectorPNS";
 import { dataObjectEvaluateStatisticalLocations } from "../../object/DataObjectEvaluateStatisticalLocations";
 
 class EvaluateStatisticalLocations {

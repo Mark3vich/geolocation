@@ -1,17 +1,17 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataSGK_T } from "../interface/IDataSGK_T";
+import { IDataSGKT } from "../interfaces/IDataSGKT";
 
 class DataStoresSGK_T {
-    @observable dataText: IDataSGK_T[] | null = [];
+    @observable dataText: IDataSGKT[] | null = [];
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataSGK_T[] | null): void {
+    @action setDataText(dataText: IDataSGKT[] | null): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataSGK_T[] | null {
+    @action getDataText(): IDataSGKT[] | null {
         return this.dataText;
     }
 

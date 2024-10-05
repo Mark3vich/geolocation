@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { IDataSGK_T } from '../../interface/IDataSGK_T';
+import { IDataSGKT } from '../../interfaces/IDataSGKT';
 import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
 
-class TableSGKT extends Component<{ dataText: IDataSGK_T[] }> {
+class TableSGKT extends Component<{ dataText: IDataSGKT[] }> {
     render() {
         const { dataText } = this.props;
         ConvertDataSGK_T.convertCoordinate(dataText[0].latitude);

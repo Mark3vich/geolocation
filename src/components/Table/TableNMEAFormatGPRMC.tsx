@@ -1,9 +1,9 @@
 import { Component } from "react";
 import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
-import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
+import { IDataNMEAFormatGPRMC } from "../../interfaces/IDataNMEAFormatGPRMC";
 
 
-class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
+class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEAFormatGPRMC[] }> {
     render() {
         const { dataText } = this.props;
         ConvertDataNMEA.convertCoordinate(dataText[0].latitude);
@@ -26,7 +26,7 @@ class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataText.map((dataText: IDataNMEA_GPRMC, index) => (
+                    {dataText.map((dataText: IDataNMEAFormatGPRMC, index) => (
                         <tr key={index}>
                             <th scope="row">{index + 1}</th>
                             <td>{dataText.message_id}</td>

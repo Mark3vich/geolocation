@@ -1,7 +1,7 @@
 import { Component } from "react";
-import { IDataNMEA_GPGSV } from "../../interface/IDataNMEA_GPGSV";
+import { IDataNMEAFormatGPGSV } from "../../interfaces/IDataNMEAFormatGPGSV";
 
-class TableNMEAFormatGPGSV extends Component<{ dataText: IDataNMEA_GPGSV[] }> {
+class TableNMEAFormatGPGSV extends Component<{ dataText: IDataNMEAFormatGPGSV[] }> {
     render() {
         const { dataText } = this.props;
         return (
@@ -21,7 +21,7 @@ class TableNMEAFormatGPGSV extends Component<{ dataText: IDataNMEA_GPGSV[] }> {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataText.map((dataText: IDataNMEA_GPGSV, index) => (
+                    {dataText.map((dataText: IDataNMEAFormatGPGSV, index) => (
                         <tr key={index}>
                             <th scope="row">{index + 1}</th>
                             <td>{dataText.message_id}</td>

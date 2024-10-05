@@ -1,18 +1,18 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEA_GPGSV } from "../interface/IDataNMEA_GPGSV";
+import { IDataNMEAFormatGPGSV } from "../interfaces/IDataNMEAFormatGPGSV";
 
 class DataStoresNMEA_GPGSV {
-    @observable dataText: IDataNMEA_GPGSV[] | null = [];
+    @observable dataText: IDataNMEAFormatGPGSV[] | null = [];
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataNMEA_GPGSV[] | null): void {
+    @action setDataText(dataText: IDataNMEAFormatGPGSV[] | null): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataNMEA_GPGSV[] | null {
+    @action getDataText(): IDataNMEAFormatGPGSV[] | null {
         return this.dataText;
     }
 

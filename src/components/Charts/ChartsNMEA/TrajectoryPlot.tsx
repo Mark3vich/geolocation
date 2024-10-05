@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, PointElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 import DataStoresNMEA_GPGGA from '../../../stores/DataStoresNMEA_GPGGA';
-import { IDataNMEA_GPGGA } from '../../../interface/IDataNMEA_GPGGA';
+import { IDataNMEAFormatGPGGA } from '../../../interfaces/IDataNMEAFormatGPGGA';
 import ConvertDataNMEA from '../../../utils/Reader/NMEA/ConvertDataNMEA';
-import { IPoint } from '../../../interface/IPoint';
-import { TrajectoryState } from '../../../interface/ITrajectoryState';
+import { IPoint } from '../../../interfaces/IPoint';
+import { TrajectoryState } from '../../../interfaces/ITrajectoryState';
 
 ChartJS.register(PointElement, LinearScale, Title, Tooltip, Legend);
 
@@ -19,7 +19,7 @@ class TrajectoryPlot extends Component<{}, TrajectoryState> {
     }
 
     componentDidMount() {
-        const dataText = DataStoresNMEA_GPGGA.getDataText() as IDataNMEA_GPGGA[];
+        const dataText = DataStoresNMEA_GPGGA.getDataText() as IDataNMEAFormatGPGGA[];
 
         if (dataText && dataText.length > 0) {
             const points: IPoint[] = dataText.map(item => ({

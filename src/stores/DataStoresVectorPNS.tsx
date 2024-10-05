@@ -1,21 +1,21 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEA_Coordinates } from "../interface/IDataNMEA_Coordinates";
-import { IDataNMEA_GPGGA } from "../interface/IDataNMEA_GPGGA";
-import { IDataSGK_T } from "../interface/IDataSGK_T";
-import { IVectorPNS } from "../interface/IVectorPNS";
+import { IDataNMEAFormatCoordinates } from "../interfaces/IDataNMEAFormatCoordinates";
+import { IDataNMEAFormatGPGGA } from "../interfaces/IDataNMEAFormatGPGGA";
+import { IDataSGKT } from "../interfaces/IDataSGKT";
+import { IVectorPNS } from "../interfaces/IVectorPNS";
 
 class DataStoresVectorPNS {
-    @observable dataText: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] = [];
+    @observable dataText: IDataNMEAFormatCoordinates<IDataNMEAFormatGPGGA | IDataSGKT>[] = [];
     
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[]): void {
+    @action setDataText(dataText: IDataNMEAFormatCoordinates<IDataNMEAFormatGPGGA | IDataSGKT>[]): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataNMEA_Coordinates<IDataNMEA_GPGGA | IDataSGK_T>[] {
+    @action getDataText(): IDataNMEAFormatCoordinates<IDataNMEAFormatGPGGA | IDataSGKT>[] {
         return this.dataText;
     }
 

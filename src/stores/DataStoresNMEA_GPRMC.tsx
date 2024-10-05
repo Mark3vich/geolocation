@@ -1,18 +1,18 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEA_GPRMC } from "../interface/IDataNMEA_GPRMC";
+import { IDataNMEAFormatGPRMC } from "../interfaces/IDataNMEAFormatGPRMC";
 
 class DataStoresNMEA_GPRMC {
-    @observable dataText: IDataNMEA_GPRMC[] | null = [];
+    @observable dataText: IDataNMEAFormatGPRMC[] | null = [];
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataNMEA_GPRMC[] | null): void {
+    @action setDataText(dataText: IDataNMEAFormatGPRMC[] | null): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataNMEA_GPRMC[] | null {
+    @action getDataText(): IDataNMEAFormatGPRMC[] | null {
         return this.dataText;
     }
 }

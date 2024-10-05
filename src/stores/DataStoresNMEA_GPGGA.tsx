@@ -1,19 +1,19 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { IDataNMEA_GPGGA } from "../interface/IDataNMEA_GPGGA";
+import { IDataNMEAFormatGPGGA } from "../interfaces/IDataNMEAFormatGPGGA";
 
 
 class DataStoresNMEA_GPGGA {
-    @observable dataText: IDataNMEA_GPGGA[] | null = [];
+    @observable dataText: IDataNMEAFormatGPGGA[] | null = [];
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    @action setDataText(dataText: IDataNMEA_GPGGA[] | null): void {
+    @action setDataText(dataText: IDataNMEAFormatGPGGA[] | null): void {
         this.dataText = dataText;
     }
 
-    @action getDataText(): IDataNMEA_GPGGA[] | null {
+    @action getDataText(): IDataNMEAFormatGPGGA[] | null {
         return this.dataText;
     }
 

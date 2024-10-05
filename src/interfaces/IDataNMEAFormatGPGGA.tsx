@@ -1,4 +1,4 @@
-export interface IDataNMEA_GPGGA {
+export interface IDataNMEAFormatGPGGA {
     message_id: string;
     utc_time: string;
     latitude: string;

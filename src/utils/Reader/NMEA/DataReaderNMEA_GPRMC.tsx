@@ -1,11 +1,11 @@
 import { EAST, NORTH, SOUTH, WEST } from "../../../consts/ConstsApp";
-import { IDataNMEA_GPRMC } from "../../../interface/IDataNMEA_GPRMC";
+import { IDataNMEAFormatGPRMC } from "../../../interfaces/IDataNMEAFormatGPRMC";
 import { dataObjectNMEA_GPRMC } from "../../../object/DataObjectNMEA_GPRMC";
 import ConvertDataNMEA from "./ConvertDataNMEA";
 
 class DataReaderNMEA_GPRMC {
-    public static convertString(dataTextArray: IDataNMEA_GPRMC[], words: string[]): void {
-        let dataText: IDataNMEA_GPRMC = { ...dataObjectNMEA_GPRMC };
+    public static convertString(dataTextArray: IDataNMEAFormatGPRMC[], words: string[]): void {
+        let dataText: IDataNMEAFormatGPRMC = { ...dataObjectNMEA_GPRMC };
         dataText.message_id = words[0];
         if (ConvertDataNMEA.chackingTimeUTC(words[1])) {
             dataText.utc_time = ConvertDataNMEA.convertTime(words[1]);

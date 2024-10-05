@@ -1,11 +1,11 @@
 import { EAST, NORTH, SOUTH, WEST } from "../../../consts/ConstsApp";
-import { IDataNMEA_GPGGA } from "../../../interface/IDataNMEA_GPGGA";
+import { IDataNMEAFormatGPGGA } from "../../../interfaces/IDataNMEAFormatGPGGA";
 import { dataObjectNMEA_GPGGA } from "../../../object/DataObjectNMEA_GPGGA";
 import ConvertDataNMEA from "./ConvertDataNMEA";
 
 class DataReaderNMEA_GPGGA {
-    public static convertString(dataTextArrayNMEA: IDataNMEA_GPGGA[], words: string[]): void  {
-        let dataText: IDataNMEA_GPGGA = {...dataObjectNMEA_GPGGA};
+    public static convertString(dataTextArrayNMEA: IDataNMEAFormatGPGGA[], words: string[]): void  {
+        let dataText: IDataNMEAFormatGPGGA = {...dataObjectNMEA_GPGGA};
         dataText.message_id = words[0];
         if (ConvertDataNMEA.chackingTimeUTC(words[1])) {
             dataText.utc_time = ConvertDataNMEA.convertTime(words[1]);

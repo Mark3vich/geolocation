@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import TableSGKT from '../Table/TableSGKT';
-import { IDataAll } from '../../interface/IDataAll';
+import { IDataAll } from '../../interfaces/IDataAll';
 import TableNMEAFormatGPGGA from '../Table/TableNMEAFormatGPGGA';
 import TableNMEAFormatGPRMC from '../Table/TableNMEAFormatGPRMC';
-import { IMainState } from '../../interface/IMainState';
+import { IMainState } from '../../interfaces/IMainState';
 import DataStoresSGK_T from '../../stores/DataStoresSGK_T';
 import DataStoresNMEA_GPGGA from '../../stores/DataStoresNMEA_GPGGA';
 import DataStoresNMEA_GPRMC from '../../stores/DataStoresNMEA_GPRMC';
