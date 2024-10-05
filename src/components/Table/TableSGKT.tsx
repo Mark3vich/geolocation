@@ -3,9 +3,6 @@ import { IDataSGK_T } from '../../interface/IDataSGK_T';
 import ConvertDataSGK_T from '../../utils/Reader/SGK_T/ConvertDataSGK_T';
 
 class TableSGKT extends Component<{ dataText: IDataSGK_T[] }> {
-    constructor(props: { dataText: IDataSGK_T[] }) {
-        super(props);
-    };
     render() {
         const { dataText } = this.props;
         ConvertDataSGK_T.convertCoordinate(dataText[0].latitude);

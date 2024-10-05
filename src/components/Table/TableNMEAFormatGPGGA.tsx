@@ -4,10 +4,6 @@ import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 
 
 class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
-    constructor(props: { dataText: IDataNMEA_GPGGA[] }) {
-        super(props);
-    };
-
     render() {
         const { dataText } = this.props;
         return (

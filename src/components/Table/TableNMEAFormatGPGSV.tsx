@@ -2,9 +2,6 @@ import { Component } from "react";
 import { IDataNMEA_GPGSV } from "../../interface/IDataNMEA_GPGSV";
 
 class TableNMEAFormatGPGSV extends Component<{ dataText: IDataNMEA_GPGSV[] }> {
-    constructor(props: { dataText: IDataNMEA_GPGSV[] }) {
-        super(props);
-    };
     render() {
         const { dataText } = this.props;
         return (

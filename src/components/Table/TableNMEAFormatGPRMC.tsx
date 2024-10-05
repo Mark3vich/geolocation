@@ -4,10 +4,6 @@ import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
 
 
 class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
-    constructor(props: { dataText: IDataNMEA_GPRMC[] }) {
-        super(props);
-    };
-
     render() {
         const { dataText } = this.props;
         ConvertDataNMEA.convertCoordinate(dataText[0].latitude);
