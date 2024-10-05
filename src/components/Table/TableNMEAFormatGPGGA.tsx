@@ -3,7 +3,7 @@ import { IDataNMEA_GPGGA } from "../../interface/IDataNMEA_GPGGA";
 import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 
 
-class TableNMEA_GPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
+class TableNMEAFormatGPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
     constructor(props: { dataText: IDataNMEA_GPGGA[] }) {
         super(props);
     };
@@ -51,4 +51,4 @@ class TableNMEA_GPGGA extends Component<{ dataText: IDataNMEA_GPGGA[] }> {
     }
 }
 
-export default TableNMEA_GPGGA;
+export default TableNMEAFormatGPGGA;

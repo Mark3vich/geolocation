@@ -3,7 +3,7 @@ import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 import { IDataNMEA_GPRMC } from "../../interface/IDataNMEA_GPRMC";
 
 
-class TableNMEA_GPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
+class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
     constructor(props: { dataText: IDataNMEA_GPRMC[] }) {
         super(props);
     };
@@ -52,4 +52,4 @@ class TableNMEA_GPRMC extends Component<{ dataText: IDataNMEA_GPRMC[] }> {
     }
 }
 
-export default TableNMEA_GPRMC;
+export default TableNMEAFormatGPRMC;
