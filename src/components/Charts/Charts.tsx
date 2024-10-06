@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Chart, registerables } from 'chart.js';
 import { observer } from 'mobx-react';
-import ChartsSGK_T from "./ChartsSGK_T/ChartsSGK_T";
+import ChartsSGKT from "./ChartsSGK_T/ChartsSGKT";
 import ChartsNMEA from "./ChartsNMEA/ChartsNMEA";
 import DataStoresSGKT from "../../stores/DataStoresSGKT";
 import DataStoresNMEA from "../../stores/DataStoresNMEAFormatGPGGA";
@@ -27,7 +27,7 @@ class Charts extends Component {
     render() {
         return (
             <div className="container">
-                {this.checkIsTypeStore() ? <ChartsSGK_T /> : <ChartsNMEA />}
+                {this.checkIsTypeStore() ? <ChartsSGKT /> : <ChartsNMEA />}
             </div>
         );
     }

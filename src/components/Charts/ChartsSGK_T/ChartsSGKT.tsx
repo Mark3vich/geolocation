@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import ConvertDataSGKT from "../../../utils/Reader/SGK_T/ConvertDataSGKT";
 import DataStoresSGK_T from "../../../stores/DataStoresSGKT";
 
-class ChartsSGK_T extends Component {
+class ChartsSGKT extends Component {
     private speedTime = {
         labels: DataStoresSGK_T.getTimeDataText(),
         datasets: [
@@ -44,4 +44,4 @@ class ChartsSGK_T extends Component {
     }
 }
 
-export default ChartsSGK_T;
+export default ChartsSGKT;
