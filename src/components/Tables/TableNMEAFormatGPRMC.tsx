@@ -1,14 +1,15 @@
 import { Component } from "react";
 import ConvertDataNMEA from "../../utils/Reader/NMEA/ConvertDataNMEA";
 import { IDataNMEAFormatGPRMC } from "../../interfaces/Datas/IDataNMEAFormatGPRMC";
+import ThemeStores from "../../stores/ThemeStores";
 
 
 class TableNMEAFormatGPRMC extends Component<{ dataText: IDataNMEAFormatGPRMC[] }> {
     render() {
         const { dataText } = this.props;
-        ConvertDataNMEA.convertCoordinate(dataText[0].latitude);
+        const theme = ThemeStores.getTheme();
         return (
-            <table className="container table table-striped">
+            <table className={`container table ${theme ? 'table' : 'table-dark'} table-striped table-hover`}>
                 <thead>
                     <tr>
                         <th scope="col">№</th>

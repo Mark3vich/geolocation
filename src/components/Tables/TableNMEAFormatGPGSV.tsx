@@ -1,11 +1,13 @@
 import { Component } from "react";
 import { IDataNMEAFormatGPGSV } from "../../interfaces/Datas/IDataNMEAFormatGPGSV";
+import ThemeStores from "../../stores/ThemeStores";
 
 class TableNMEAFormatGPGSV extends Component<{ dataText: IDataNMEAFormatGPGSV[] }> {
     render() {
         const { dataText } = this.props;
+        const theme = ThemeStores.getTheme();
         return (
-            <table className="container table table-striped">
+            <table className={`container table ${theme ? 'table' : 'table-dark'} table-striped table-hover`}>
                 <thead>
                     <tr>
                         <th scope="col">№</th>

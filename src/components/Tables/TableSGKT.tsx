@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { IDataSGKT } from '../../interfaces/Datas/IDataSGKT';
 import ConvertDataSGKT from '../../utils/Reader/SGK_T/ConvertDataSGKT';
+import ThemeStores from '../../stores/ThemeStores';
 
 class TableSGKT extends Component<{ dataText: IDataSGKT[] }> {
     render() {
         const { dataText } = this.props;
-        ConvertDataSGKT.convertCoordinate(dataText[0].latitude);
+        const theme = ThemeStores.getTheme();
         return (
-            <table className="container table table-striped">
+            <table className={`container table ${theme ? 'table' : 'table-dark'} table-striped table-hover`}>
                 <thead>
                     <tr>
                         <th scope="col">№</th>
