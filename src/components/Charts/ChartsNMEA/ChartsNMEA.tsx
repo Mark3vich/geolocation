@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import ConvertDataNMEA from "../../../utils/Reader/NMEA/ConvertDataNMEA";
 import TrajectoryPlot from "./TrajectoryPlot";
 import ScatterPlotRelativeToAverage from "./ScatterPlotRelativeToAverage";
+import ThemeStores from "../../../stores/ThemeStores";
 
 class ChartsNMEA extends Component {
     private hdopTime = {
@@ -63,12 +64,34 @@ class ChartsNMEA extends Component {
         ],
     }
 
+    private chartOptions = {
+        scales: {
+            x: {
+                ticks: {
+                    color: ThemeStores.getTheme() ? "black" : "white", // Dynamically set X-axis label color
+                }
+            },
+            y: {
+                ticks: {
+                    color: ThemeStores.getTheme() ? "black" : "white", // Dynamically set X-axis label color
+                },
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: ThemeStores.getTheme() ? "black" : "white" // Set legend text to white
+                }
+            }
+        }
+    }
+
     render() {
         return (
             <div className="container">
-                <Line data={this.hdopTime} />
-                <Line data={this.atlitudeTime} />
-                <Line data={this.coordinates} />
+                <Line data={this.hdopTime} options={this.chartOptions}/>
+                <Line data={this.atlitudeTime} options={this.chartOptions}/>
+                <Line data={this.coordinates} options={this.chartOptions}/>
                 <TrajectoryPlot />
                 <ScatterPlotRelativeToAverage />
             </div>

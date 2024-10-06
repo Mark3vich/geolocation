@@ -2,7 +2,10 @@ import { Component } from "react";
 import { Line } from "react-chartjs-2";
 import ConvertDataSGKT from "../../../utils/Reader/SGK_T/ConvertDataSGKT";
 import DataStoresSGK_T from "../../../stores/DataStoresSGKT";
+import ThemeStores from "../../../stores/ThemeStores";
+import { observer } from "mobx-react";
 
+@observer
 class ChartsSGKT extends Component {
     private speedTime = {
         labels: DataStoresSGK_T.getTimeDataText(),
@@ -34,11 +37,36 @@ class ChartsSGKT extends Component {
             },
         ],
     }
+
+    private chartOptions = {
+        scales: {
+            x: {
+                ticks: {
+                    color: ThemeStores.getTheme() ? "black" : "white", // Dynamically set X-axis label color
+                }
+            },
+            y: {
+                ticks: {
+                    color: ThemeStores.getTheme() ? "black" : "white", // Dynamically set X-axis label color
+                },
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: ThemeStores.getTheme() ? "black" : "white" // Set legend text to white
+                }
+            }
+        }
+    }
     render() {
         return (
             <div className="container">
-                <Line data={this.speedTime} />
-                <Line data={this.coordinates} />
+                <h2>График скорости и времени</h2>
+                <Line data={this.speedTime} options={this.chartOptions}/>
+
+                <h2>График координат</h2>
+                <Line data={this.coordinates} options={this.chartOptions}/>
             </div>
         );
     }
