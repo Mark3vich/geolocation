@@ -4,6 +4,7 @@ import DataStoresVectorPNS from "../../../stores/DataStoresVectorPNS";
 
 class AverageSquareDeviationsProperty extends Component {
     render(): ReactNode {
+        if (!DataStoresVectorPNS.getVectorPNS()?.length) return null;
         const evaluateStatisticalLocations = EvaluateStatisticalLocations.calculateStatisticalCharacteristics(DataStoresVectorPNS.getVectorPNS());
         if (!evaluateStatisticalLocations) return null;
         return (
