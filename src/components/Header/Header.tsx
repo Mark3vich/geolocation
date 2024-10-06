@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; // Импортируем Link
+import { AiFillSun } from "react-icons/ai";
+import ThemeStores from '../../stores/ThemeStores';
+import { HeaderState } from '../../interfaces/Components/IHeaderState';
 
-class Header extends Component {
+class Header extends Component<{}, HeaderState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      isDarkTheme: ThemeStores.getTheme() // Инициализируем локальное состояние текущей темой
+    };
+  }
+
+  // Функция для переключения темы
+  toggleTheme = () => {
+    const newTheme = !this.state.isDarkTheme;
+    ThemeStores.setTheme(newTheme); // Устанавливаем новое значение темы в хранилище
+    this.setState({ isDarkTheme: newTheme }); // Обновляем локальное состояние для перерисовки компонента
+  }
+
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg ${ThemeStores.getTheme() ? "navbar-dark bg-primary" : "navbar-dark bg-dark"}`}>
         <div className="container">
           <Link className="navbar-brand" to="/">
             Geolocation
@@ -48,6 +65,7 @@ class Header extends Component {
                 </Link>
               </li>
             </ul>
+            <AiFillSun style={{marginLeft: "10px"}} color={ThemeStores.getTheme() ? "yellow" : "white"} size={30} cursor={"pointer"} onClick={this.toggleTheme} />
           </div>
         </div>
       </nav>

@@ -14,6 +14,7 @@ import DataStoresNMEAFormatGPGSV from '../../stores/DataStoresNMEAFormatGPGSV';
 import UniversalGeometryReaderData from '../../utils/Reader/UniversalGeometryReaderData';
 import DataStoresVectorPNS from '../../stores/DataStoresVectorPNS';
 import TableNMEAFormatGPGSV from '../Tables/TableNMEAFormatGPGSV';
+import ThemeStores from '../../stores/ThemeStores';
 
 @observer
 class Main extends Component<{}, IMainState> {
@@ -21,6 +22,7 @@ class Main extends Component<{}, IMainState> {
     super(props);
     this.state = {
       errorMessage: '', // Убрать локальное состояние ошибки передать в store
+      fileName: '',
     };
   }
 
@@ -28,6 +30,7 @@ class Main extends Component<{}, IMainState> {
     const file: File | undefined = event.target.files?.[0];
 
     if (file && file.type === 'text/plain') {
+      this.setState({ fileName: file.name });
       const reader: FileReader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const content: string = e.target?.result as string;
@@ -69,8 +72,8 @@ class Main extends Component<{}, IMainState> {
   };
 
   render() {
-    const { errorMessage } = this.state;
-    
+    const { fileName, errorMessage } = this.state;
+
     return (
       <div className="container mt-4">
         <div className="row">
@@ -80,7 +83,22 @@ class Main extends Component<{}, IMainState> {
         </div>
         <div className="row">
           <div className="col-12">
-            <input type="file" accept=".txt" onChange={this.handleFileChange} />
+            <input
+              type="file"
+              accept=".txt"
+              onChange={this.handleFileChange}
+              id="file-upload"
+              className="d-none"  // Hide default input
+            />
+            <div className="d-flex align-items-center">
+              <label
+                htmlFor="file-upload"
+                className={`btn ${ThemeStores.getTheme() ? 'btn-primary' : 'btn-dark'}`}
+              >
+                Выберите файл
+              </label>
+              <p className='ps-2  mb-0 file-name-text'>{fileName}</p>
+            </div>
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             {DataStoresSGK_T.getDataText()?.length ? (
               <div className="mt-4">
