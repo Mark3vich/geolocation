@@ -5,7 +5,9 @@ import ConvertDataNMEA from "../../../utils/Reader/NMEA/ConvertDataNMEA";
 import TrajectoryPlot from "./TrajectoryPlot";
 import ScatterPlotRelativeToAverage from "./ScatterPlotRelativeToAverage";
 import ThemeStores from "../../../stores/ThemeStores";
+import { observer } from "mobx-react";
 
+@observer
 class ChartsNMEA extends Component {
     private hdopTime = {
         labels: DataStoresNMEAFormatGPGGA.getTimeDataText(),

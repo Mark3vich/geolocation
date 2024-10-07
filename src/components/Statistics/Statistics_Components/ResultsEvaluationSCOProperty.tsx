@@ -1,6 +1,9 @@
 import { Component } from "react";
 import EvaluationResultsSCO from "../../../utils/Math/EvaluationResultsSCO";
+import ThemeStores from "../../../stores/ThemeStores";
+import { observer } from "mobx-react";
 
+@observer
 class ResultsEvaluationSCOProperty extends Component {
     render() {
         const stats = EvaluationResultsSCO.calculateStatistics();
@@ -10,7 +13,7 @@ class ResultsEvaluationSCOProperty extends Component {
         return (
             <div className="mt-4">
                 <h2>Результаты оценивания СКО:</h2>
-                <table className="table table-striped">
+                <table className={`table ${ThemeStores.getTheme() ? '' : 'table-dark'} table-striped`}>
                     <thead>
                         <tr>
                             <th scope="col">Параметр</th>
